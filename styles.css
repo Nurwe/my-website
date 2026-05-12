@@ -75,8 +75,17 @@ textarea {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-weight: 700;
   font-size: 1rem;
+}
+
+.logo img {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
 }
 
 .site-nav {
