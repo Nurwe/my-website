@@ -271,6 +271,13 @@ textarea {
   gap: 1.5rem;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
   background: #ffffff;
@@ -291,6 +298,10 @@ textarea {
   .footer-inner,
   .contact-card {
     grid-template-columns: 1fr;
+  }
+
+  .contact-actions {
+    justify-content: flex-start;
   }
 
   .header-inner {
