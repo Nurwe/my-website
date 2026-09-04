@@ -1,0 +1,4 @@
+scripts/*.log
+.edge-*/
+after-*.png
+review-*.png

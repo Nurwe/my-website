@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GDP nowcast test predictions</title>
+<style>
+body{margin:0;background:#f4f7fb;color:#0f172a;font:15px/1.5 Arial,sans-serif}
+main{max-width:1500px;margin:auto;padding:36px 20px 60px}h1{font-size:32px;margin:0 0 8px}.intro{color:#475569;margin:0 0 28px}
+.section-title{font-size:27px;margin:38px 0 4px;border-top:1px solid #dbe3ee;padding-top:28px}
+.card{background:white;border:1px solid #e2e8f0;border-radius:16px;padding:20px;margin:20px 0;box-shadow:0 8px 24px rgba(15,23,42,.05)}
+.card h2{margin:0;font-size:22px}.card p{color:#475569;margin:4px 0 16px}img{width:100%;height:auto;display:block}
+</style></head><body><main><h1>Test-set predictions versus realized GDP</h1>
+<p class="intro">Separate M1, M2 and M3 graphs in both seasonally adjusted and original terms.</p>
+<h2 class='section-title'>Seasonally adjusted QoQ</h2><p class='intro'>The model target: seasonally adjusted quarter-on-quarter real GDP growth.</p>
+<section class="card">
+  <h2>M1</h2>
+  <p>RMSE model 2.129; AR(1) 2.164; ratio 0.983.</p>
+  <img src="predicciones_test_M1.png" alt="M1 Seasonally adjusted QoQ predictions versus realized GDP">
+</section>
+<section class="card">
+  <h2>M2</h2>
+  <p>RMSE model 1.593; AR(1) 2.164; ratio 0.736.</p>
+  <img src="predicciones_test_M2.png" alt="M2 Seasonally adjusted QoQ predictions versus realized GDP">
+</section>
+<section class="card">
+  <h2>M3</h2>
+  <p>RMSE model 1.379; AR(1) 2.566; ratio 0.537.</p>
+  <img src="predicciones_test_M3.png" alt="M3 Seasonally adjusted QoQ predictions versus realized GDP">
+</section><h2 class='section-title'>Non-seasonally adjusted QoQ</h2><p class='intro'>The same predictions converted to original data using seasonal factors estimated only from preceding quarters.</p>
+<section class="card">
+  <h2>M1</h2>
+  <p>RMSE model 2.243; AR(1) 2.273; ratio 0.987.</p>
+  <img src="predicciones_test_M1_sin_ajuste_estacional.png" alt="M1 Non-seasonally adjusted QoQ predictions versus realized GDP">
+</section>
+<section class="card">
+  <h2>M2</h2>
+  <p>RMSE model 1.729; AR(1) 2.273; ratio 0.760.</p>
+  <img src="predicciones_test_M2_sin_ajuste_estacional.png" alt="M2 Non-seasonally adjusted QoQ predictions versus realized GDP">
+</section>
+<section class="card">
+  <h2>M3</h2>
+  <p>RMSE model 1.528; AR(1) 2.679; ratio 0.570.</p>
+  <img src="predicciones_test_M3_sin_ajuste_estacional.png" alt="M3 Non-seasonally adjusted QoQ predictions versus realized GDP">
+</section></main></body></html>

@@ -1,0 +1,158 @@
+{
+    "schemaVersion":  1,
+    "generatedAtUtc":  "2026-09-04T17:15:07.3680662Z",
+    "sourceSnapshotUtc":  "2026-09-04T16:35:07.4655501Z",
+    "fileCount":  25,
+    "files":  [
+                  {
+                      "path":  "brazil/dashboards/real-economy.html",
+                      "bytes":  4715526,
+                      "sourceLastModifiedUtc":  "2026-09-04T10:11:08.6084530Z",
+                      "sha256":  "4a018fbda17f4ea7c3c7339efe78c39a5041cf306c2e09b1b2fa576a46fe0d69"
+                  },
+                  {
+                      "path":  "brazil/dashboards/fiscal.html",
+                      "bytes":  17836589,
+                      "sourceLastModifiedUtc":  "2026-09-04T10:11:09.7401335Z",
+                      "sha256":  "65ab2247c2b0aa3d6a0c859d752572f8589479e874595b7f6aaaa3360c03a007"
+                  },
+                  {
+                      "path":  "brazil/dashboards/financial.html",
+                      "bytes":  7311581,
+                      "sourceLastModifiedUtc":  "2026-09-04T10:11:08.3266495Z",
+                      "sha256":  "421f2bbfb8e1b04cec9968264772a00679632c63e4cf946506104f92bc0db925"
+                  },
+                  {
+                      "path":  "brazil/dashboards/external.html",
+                      "bytes":  20995169,
+                      "sourceLastModifiedUtc":  "2026-09-04T10:11:07.8417426Z",
+                      "sha256":  "06921caefa0e233e9f3885c21977b2bd17f8215c59ff50dd2ecfbbc70a88bbd8"
+                  },
+                  {
+                      "path":  "brazil/dashboards/calendar.html",
+                      "bytes":  290507,
+                      "sourceLastModifiedUtc":  "2026-09-04T10:11:09.7495160Z",
+                      "sha256":  "716f15cbe6a83dba6da6df42974c876d5ae672efb2375ad3e1884b4cc63b12fc"
+                  },
+                  {
+                      "path":  "brazil/data/nowcast-current.csv",
+                      "bytes":  1048,
+                      "sourceLastModifiedUtc":  "2026-09-04T13:00:16.9967748Z",
+                      "sha256":  "41cf0a53f2b8e9319c1de89eb145b8b8c6fa565b46db527d885e22149c2badd6"
+                  },
+                  {
+                      "path":  "brazil/data/model-comparison.csv",
+                      "bytes":  1002,
+                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4561214Z",
+                      "sha256":  "03c93f158e4af052c4d1f6b405e5650803f03f90696c95e133715b112097743c"
+                  },
+                  {
+                      "path":  "brazil/data/model-rmse.csv",
+                      "bytes":  27267,
+                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4541150Z",
+                      "sha256":  "5f57f75d21b52c76ae122e663e94664499dac91f0bd3991c19777fa2309517a1"
+                  },
+                  {
+                      "path":  "brazil/data/model-evaluation-status.csv",
+                      "bytes":  838,
+                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4561214Z",
+                      "sha256":  "44597cba265f098fdce27121d7d606b36632db779aec2de9995e64bc46595873"
+                  },
+                  {
+                      "path":  "brazil/data/model-variable-importance.csv",
+                      "bytes":  382636,
+                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4655501Z",
+                      "sha256":  "fa93620948e9c9191343149c65e54efada0b741966fea20be2f0bb77b31ca41e"
+                  },
+                  {
+                      "path":  "brazil/data/ensemble-performance.csv",
+                      "bytes":  22248,
+                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4561214Z",
+                      "sha256":  "5a66f1c09a3af2cd4e2f96b74763e41c7457e8b775c9249ab654ed5acb67f5bd"
+                  },
+                  {
+                      "path":  "brazil/data/model-variants-vs-rolling.csv",
+                      "bytes":  8361,
+                      "sourceLastModifiedUtc":  "2026-09-04T16:34:54.9680444Z",
+                      "sha256":  "d42058a393fb4d3b2e3cf6eba5dd5dd8abfe9f29d427e393dba1d93937f34379"
+                  },
+                  {
+                      "path":  "brazil/data/model-benchmarks-post-covid.csv",
+                      "bytes":  2,
+                      "sourceLastModifiedUtc":  "2026-09-04T16:34:55.1490354Z",
+                      "sha256":  "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+                  },
+                  {
+                      "path":  "brazil/data/component-forecasts.csv",
+                      "bytes":  2083,
+                      "sourceLastModifiedUtc":  "2026-09-04T13:00:16.9977455Z",
+                      "sha256":  "230610629e246e6aaf8a306b1e438ad0db80e1e57139666baa2bbcd3961710ba"
+                  },
+                  {
+                      "path":  "brazil/data/model-variables.csv",
+                      "bytes":  10591,
+                      "sourceLastModifiedUtc":  "2026-09-04T13:00:17.1507255Z",
+                      "sha256":  "ca1e423e5ba6dc6d35dc68c46ed3aebf5f8d3ce876e4925bd9b1f90eb2a60488"
+                  },
+                  {
+                      "path":  "brazil/data/model-weights.csv",
+                      "bytes":  1102,
+                      "sourceLastModifiedUtc":  "2026-09-04T13:00:17.0017454Z",
+                      "sha256":  "c41e47ec8a24bdd9472dd43ca3c0c6e2b5e497e5a88d366b33d868195b01ac78"
+                  },
+                  {
+                      "path":  "brazil/research/validation.html",
+                      "bytes":  8830,
+                      "sourceLastModifiedUtc":  "2026-09-03T15:51:42.7731694Z",
+                      "sha256":  "a14541e4516bc44335596a8fb96495ebb7c89d035d60eb748d18d9dc0a427d64"
+                  },
+                  {
+                      "path":  "brazil/research/diagnostics.html",
+                      "bytes":  1206611,
+                      "sourceLastModifiedUtc":  "2026-09-03T22:50:54.1330517Z",
+                      "sha256":  "314464f536a3e80df31cfd4c229624da8616ef48c80833eb07f57894ec8d1086"
+                  },
+                  {
+                      "path":  "brazil/research/test-predictions/predicciones_test_M1.png",
+                      "bytes":  168940,
+                      "sourceLastModifiedUtc":  "2026-08-28T17:07:24.7424614Z",
+                      "sha256":  "4e77be0f35370eed812546dcbd31bed1570548e04f868c50e2663a009fd40f14"
+                  },
+                  {
+                      "path":  "brazil/research/test-predictions/predicciones_test_M1_sin_ajuste_estacional.png",
+                      "bytes":  229152,
+                      "sourceLastModifiedUtc":  "2026-08-28T17:07:25.4616295Z",
+                      "sha256":  "d6a8a05032d9790667c2391be1703243541e1113932800e86f1f2793389103ea"
+                  },
+                  {
+                      "path":  "brazil/research/test-predictions/predicciones_test_M2.png",
+                      "bytes":  179299,
+                      "sourceLastModifiedUtc":  "2026-08-28T17:07:24.9872868Z",
+                      "sha256":  "1e0fe011a59773896c3f65e76d688c18da84d9007690a70893ed1e26f3aef6b3"
+                  },
+                  {
+                      "path":  "brazil/research/test-predictions/predicciones_test_M2_sin_ajuste_estacional.png",
+                      "bytes":  241569,
+                      "sourceLastModifiedUtc":  "2026-08-28T17:07:25.6843209Z",
+                      "sha256":  "b74880074f0efd01b7352ee490622ce3b32caf3e887485444d1c46d8cc0021e7"
+                  },
+                  {
+                      "path":  "brazil/research/test-predictions/predicciones_test_M3.png",
+                      "bytes":  178962,
+                      "sourceLastModifiedUtc":  "2026-08-28T17:07:25.2247922Z",
+                      "sha256":  "171a8026fdbe4429f64878247c3e84f536194ca85f41a1ea2f2e69c34bc58e8b"
+                  },
+                  {
+                      "path":  "brazil/research/test-predictions/predicciones_test_M3_sin_ajuste_estacional.png",
+                      "bytes":  237078,
+                      "sourceLastModifiedUtc":  "2026-08-28T17:07:25.9139958Z",
+                      "sha256":  "4804de6bc0ac0c28a630f54b0cd9948aaac9aa86936c28d00f9184853c3450b8"
+                  },
+                  {
+                      "path":  "brazil/research/test-predictions/predicciones_test_vs_observado.html",
+                      "bytes":  2616,
+                      "sourceLastModifiedUtc":  "2026-08-28T17:07:25.9235662Z",
+                      "sha256":  "33e13d77a73edc3a4c44509879ab80d29e5ebdd71e7befbb1fdcbeeecc9ae2a2"
+                  }
+              ]
+}

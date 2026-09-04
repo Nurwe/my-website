@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nicolas Aragona's country macroeconomic dashboards and GDP nowcasts.">
+  <title>Macro Lab · Nicolas Aragona</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260901-brazil">
+  <link rel="stylesheet" href="styles.css?v=20260901-no-production-path">
+</head>
+<body class="brazil-page">
+  <header class="site-header brazil-site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html#home" aria-label="Nicolas Aragona home">
+        <img src="../assets/logo.svg" alt="" width="32" height="32">
+        <span>Nicolas Aragona</span>
+      </a>
+      <nav class="site-nav" aria-label="Macro Lab navigation">
+        <a href="#overview">Overview</a>
+        <a href="#dashboards">Dashboards</a>
+        <a href="#nowcast">GDP nowcast</a>
+        <a href="../index.html">Portfolio</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="brazil-hero" id="overview">
+      <div class="container lab-country-context">
+        <div>
+          <span class="lab-context-kicker">Macro Lab</span>
+          <strong>Country workspace</strong>
+        </div>
+        <label class="lab-country-selector" for="lab-country-select">
+          <span>Country</span>
+          <select id="lab-country-select" aria-label="Select country">
+            <option value="brazil">Brazil</option>
+          </select>
+        </label>
+      </div>
+      <div class="container brazil-hero-grid">
+        <div class="brazil-hero-copy">
+          <p class="brazil-eyebrow"><span></span> Selected country: Brazil · Synced <time data-sync-date datetime="2026-08-31">31 August 2026</time></p>
+          <h1>Brazil macro,<br><em>from pulse to prediction.</em></h1>
+          <p class="brazil-hero-intro">A unified view of activity, prices, public finances, financial conditions, external accounts, release dates, and a production GDP nowcast.</p>
+          <div class="brazil-hero-actions">
+            <a class="button brazil-primary" href="#dashboards">Explore dashboards</a>
+            <a class="button brazil-secondary" href="#nowcast">View GDP nowcast</a>
+          </div>
+          <div class="brazil-hero-meta" aria-label="Brazil research coverage">
+            <div><strong>05</strong><span>complete dashboards</span></div>
+            <div><strong>04</strong><span>core macro sectors</span></div>
+            <div><strong>2,281</strong><span>candidate nowcast signals</span></div>
+          </div>
+        </div>
+
+        <aside class="brazil-pulse-card" aria-label="Latest Brazil GDP nowcast">
+          <div class="flag-orbit" aria-hidden="true">
+            <span class="flag-orbit-ring"></span>
+            <span class="flag-orbit-diamond"></span>
+            <span class="flag-orbit-core"></span>
+          </div>
+          <div class="pulse-card-heading">
+            <p>Next GDP release</p>
+            <span class="live-chip"><i></i><span id="pulse-model-chip">Best vs AR(1)</span></span>
+          </div>
+          <div class="pulse-period" data-latest-period>2026 Q2</div>
+          <div class="pulse-estimate"><strong data-latest-qoq>0.25%</strong><span>q/q · seasonally adjusted</span></div>
+          <div class="pulse-secondary">
+            <div><span>Year on year · NSA</span><strong data-latest-yoy-nsa>1.25%</strong></div>
+            <div><span>Monthly readings</span><strong data-latest-months>3 / 3</strong></div>
+          </div>
+          <p class="pulse-note" id="pulse-model-note">The published specification is selected by its all-quarter pseudo-out-of-sample RMSE relative to AR(1). Point estimate, not investment advice.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="brazil-section dashboard-section" id="dashboards">
+      <div class="container brazil-wide-container">
+        <div class="brazil-section-heading dashboard-heading">
+          <div>
+            <p class="brazil-section-label">Dashboard suite</p>
+            <h2>Five complete views. One research workspace.</h2>
+          </div>
+          <p>Each published dashboard is preserved in full, including its filters, data downloads, detailed views, and print/PDF tools.</p>
+        </div>
+
+        <div class="dashboard-workspace">
+          <nav class="dashboard-rail" aria-label="Choose a Brazil dashboard">
+            <button class="dashboard-picker is-active" type="button" data-dashboard="real" data-src="../brazil/dashboards/real-economy.html" data-title="Real economy" data-description="Activity, GDP, consumption, inflation, energy, poverty, and labor-market detail." aria-pressed="true">
+              <span class="dashboard-number">01</span>
+              <span><strong>Real economy</strong><small>Activity &amp; prices</small></span>
+            </button>
+            <button class="dashboard-picker" type="button" data-dashboard="fiscal" data-src="../brazil/dashboards/fiscal.html" data-title="Fiscal sector" data-description="Fiscal results, federal spending, debt stocks, flows, and institutional breakdowns." aria-pressed="false">
+              <span class="dashboard-number">02</span>
+              <span><strong>Fiscal</strong><small>Balance &amp; debt</small></span>
+            </button>
+            <button class="dashboard-picker" type="button" data-dashboard="financial" data-src="../brazil/dashboards/financial.html" data-title="Financial sector" data-description="Central-bank balance sheet, monetary policy, credit, liquidity, and sovereign risk." aria-pressed="false">
+              <span class="dashboard-number">03</span>
+              <span><strong>Financial</strong><small>Rates &amp; credit</small></span>
+            </button>
+            <button class="dashboard-picker" type="button" data-dashboard="external" data-src="../brazil/dashboards/external.html" data-title="External sector" data-description="Trade, partners, products, exchange rates, current account, tariffs, and reserves." aria-pressed="false">
+              <span class="dashboard-number">04</span>
+              <span><strong>External</strong><small>Trade &amp; FX</small></span>
+            </button>
+            <button class="dashboard-picker" type="button" data-dashboard="calendar" data-src="../brazil/dashboards/calendar.html" data-title="Release calendar" data-description="Upcoming macroeconomic releases, monthly calendar, and searchable publication catalog." aria-pressed="false">
+              <span class="dashboard-number">05</span>
+              <span><strong>Calendar</strong><small>Release schedule</small></span>
+            </button>
+          </nav>
+
+          <div class="dashboard-stage">
+            <div class="dashboard-stage-header">
+              <div>
+                <p>Brazil dashboard · <span id="dashboard-position">01 / 05</span></p>
+                <h3 id="dashboard-title">Real economy</h3>
+                <span id="dashboard-description">Activity, GDP, consumption, inflation, energy, poverty, and labor-market detail.</span>
+              </div>
+              <a class="dashboard-open" id="dashboard-open" href="../brazil/dashboards/real-economy.html" target="_blank" rel="noopener">Open full screen <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="dashboard-frame-wrap">
+              <div class="dashboard-loader" id="dashboard-loader"><span></span>Loading complete dashboard…</div>
+              <iframe id="dashboard-frame" src="../brazil/dashboards/real-economy.html" title="Brazil real economy dashboard" loading="eager"></iframe>
+            </div>
+            <p class="dashboard-language-note">Dashboard controls are presented in Spanish; underlying Brazilian series retain their official source terminology.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="brazil-section nowcast-section" id="nowcast">
+      <div class="container">
+        <div class="brazil-section-heading nowcast-heading">
+          <div>
+            <p class="brazil-section-label">Brazil GDP nowcast</p>
+            <h2>A live read on the next GDP release.</h2>
+          </div>
+          <p>The production bridge ensemble combines monthly information with lagged GDP, using LASSO selection and conditional PCA to manage a large, uneven data panel.</p>
+        </div>
+
+        <div class="nowcast-period-tabs" id="nowcast-period-tabs" aria-label="GDP nowcast period"></div>
+
+        <div class="nowcast-grid">
+          <article class="nowcast-main-card">
+            <div class="nowcast-card-topline">
+              <span class="nowcast-status"><i></i><span id="nowcast-model-status">Published · best vs AR(1)</span></span>
+              <span id="nowcast-reference-date">Reference: 30 Jun 2026</span>
+            </div>
+            <div class="nowcast-value-row">
+              <div>
+                <p id="nowcast-period">2026 Q2</p>
+                <strong id="nowcast-qoq">+0.25%</strong>
+                <span>Quarter on quarter · seasonally adjusted</span>
+              </div>
+              <div class="nowcast-gauge" aria-hidden="true"><span id="nowcast-gauge-fill"></span></div>
+            </div>
+            <div class="nowcast-metrics">
+              <div><span>Year on year · not seasonally adjusted (NSA)</span><strong id="nowcast-yoy-original">+1.25%</strong></div>
+              <div><span>Information set</span><strong id="nowcast-information">M3 · 3 months</strong></div>
+            </div>
+            <p class="nowcast-context" id="nowcast-context">The estimate uses two monthly readings and the latest observed GDP release from 2026 Q1.</p>
+          </article>
+
+          <article class="method-card">
+            <div class="method-card-label">Methodology</div>
+            <h3>Documentation coming soon.</h3>
+            <p>The formal Brazil GDP nowcasting methodology has not yet been published. It will be added here when the document is ready.</p>
+            <span class="method-coming-soon">Coming soon</span>
+          </article>
+        </div>
+
+        <div class="model-comparison-card">
+          <div class="comparison-copy">
+            <p class="brazil-section-label">Specification range</p>
+            <h3>How the current model variants compare</h3>
+            <p id="comparison-explanation">Bars compare seasonally adjusted quarter-on-quarter growth. The published result is the specification with the lowest all-quarter pseudo-out-of-sample RMSE relative to AR(1) for the available information set.</p>
+          </div>
+          <div class="comparison-chart" id="model-comparison-chart" aria-live="polite"></div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="brazil-footer">
+    <div class="container brazil-footer-inner">
+      <div><img src="../assets/logo.svg" alt="" width="30" height="30"><span>Nicolas Aragona · Macro Lab</span></div>
+      <p>Sources include IBGE, Banco Central do Brasil, Tesouro Nacional, and MDIC/SECEX.</p>
+      <a href="../index.html">Back to portfolio</a>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20260904-yoy-nsa"></script>
+</body>
+</html>

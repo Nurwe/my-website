@@ -6,11 +6,16 @@
   <title>Writings | Nicolas Aragona</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
+    .editorial-shell { max-width: 920px; }
+    .writing-intro { max-width: 680px; margin-bottom: 2.5rem; }
     .writing-card {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
       border: 1px solid var(--border);
       padding: 2rem;
-      border-radius: var(--radius);
-      background: var(--surface);
+      border-radius: 18px;
+      background: var(--bg-soft);
       transition: all 0.3s ease;
     }
     .writing-card:hover {
@@ -31,16 +36,21 @@
       line-height: 1.6;
       margin: 1rem 0;
     }
+    .thesis-mark { min-height: 210px; display: grid; align-content: end; padding: 1.25rem; color: #fff; background: linear-gradient(150deg, #0b1c31, #2554d8); border-radius: 12px; }
+    .thesis-mark span { color: #99f6e4; font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .thesis-mark strong { font-size: 1.5rem; line-height: 1.15; }
+    .coming-note { margin-top: 2rem; padding: 1rem 1.25rem; color: var(--muted); background: var(--bg-soft); border-left: 3px solid var(--accent); }
+    @media (max-width: 680px) { .writing-card { grid-template-columns: 1fr; padding: 1.25rem; } .thesis-mark { min-height: 150px; } }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="../index.html">Nicolas Aragona</a>
+      <a class="logo" href="../index.html"><img src="../assets/logo.svg" alt="" width="32" height="32"><span>Nicolas Aragona</span></a>
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="../index.html">Home</a>
-        <a href="../index.html#writings">Back</a>
         <a href="../index.html#cv">CV</a>
+        <a href="../index.html#writings">Writings</a>
         <a href="../index.html#contact">Contact</a>
       </nav>
     </div>
@@ -48,22 +58,25 @@
 
   <main>
     <section class="section">
-      <div class="container">
-        <div class="section-heading">
+      <div class="container editorial-shell">
+        <div class="section-heading writing-intro">
           <p class="section-label">Writings</p>
           <h2>Academic writing and sovereign-risk analysis.</h2>
         </div>
         
-        <div style="display: grid; gap: 2rem; margin-top: 2rem;">
+        <div>
           <article class="writing-card">
-            <h3>Fiscal Balance and Economic Growth: A Relationship Conditioned by Sovereign Risk</h3>
-            <p class="writing-meta">Bachelor Thesis - Structural VAR - January 2026</p>
-            <p class="writing-summary">This thesis studies how government spending, tax revenue, and sovereign risk interact in Argentina, a country marked by repeated fiscal imbalance and credibility problems. It uses a Structural VAR with Blanchard-Perotti identification and received a grade of 6/6.</p>
-            <a class="button primary" href="Thesis.pdf" download style="display: inline-block; margin-top: 1rem;">Download PDF</a>
+            <div class="thesis-mark"><span>Bachelor thesis</span><strong>Fiscal balance &amp; sovereign risk</strong></div>
+            <div>
+              <h3>Fiscal Balance and Economic Growth: A Relationship Conditioned by Sovereign Risk</h3>
+              <p class="writing-meta">Structural VAR · January 2026 · Grade 6/6</p>
+              <p class="writing-summary">This thesis studies how government spending, tax revenue, and sovereign risk interact in Argentina, a country marked by repeated fiscal imbalance and credibility problems. It uses a Structural VAR with Blanchard-Perotti identification.</p>
+              <a class="button primary" href="Thesis.pdf" download>Download PDF</a>
+            </div>
           </article>
         </div>
         
-        <p style="text-align: center; color: var(--muted); margin-top: 3rem;">
+        <p class="coming-note">
           More writings coming soon. Check back for new articles and analysis.
         </p>
       </div>

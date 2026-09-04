@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=../lab/?country=brazil">
+  <link rel="canonical" href="../lab/?country=brazil">
+  <title>Opening Macro Lab · Brazil</title>
+</head>
+<body>
+  <p>Brazil has moved to the <a href="../lab/?country=brazil">Macro Lab</a>.</p>
+  <script>
+    const parameters = new URLSearchParams(window.location.search);
+    parameters.set('country', 'brazil');
+    window.location.replace(`../lab/?${parameters.toString()}${window.location.hash}`);
+  </script>
+</body>
+</html>

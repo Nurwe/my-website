@@ -1,0 +1,7 @@
+periodo,meses_disponibles,modelo,peso_ensamble,metodo_ponderacion,puntaje_senal,umbral_activacion_senal,umbral_saturacion_senal,proporcion_factores_activos,intensidad_senal,modelos_factoriales_alineados,peso_transferido_a_senal
+2026-T3,1,media_historica,0.1,pesos_adaptativos_por_senal_factorial_fuerte,0.7514030404925377,1.785383315828995,5.478545358851652,0.5,0.0,True,0.0
+2026-T3,1,ar_disponible,0.7,pesos_adaptativos_por_senal_factorial_fuerte,0.7514030404925377,1.785383315828995,5.478545358851652,0.5,0.0,True,0.0
+2026-T3,1,ar2_disponible,0.0,pesos_adaptativos_por_senal_factorial_fuerte,0.7514030404925377,1.785383315828995,5.478545358851652,0.5,0.0,True,0.0
+2026-T3,1,factores,0.1,pesos_adaptativos_por_senal_factorial_fuerte,0.7514030404925377,1.785383315828995,5.478545358851652,0.5,0.0,True,0.0
+2026-T3,1,factores_ar,0.1,pesos_adaptativos_por_senal_factorial_fuerte,0.7514030404925377,1.785383315828995,5.478545358851652,0.5,0.0,True,0.0
+2026-T3,1,factores_huber,0.0,pesos_adaptativos_por_senal_factorial_fuerte,0.7514030404925377,1.785383315828995,5.478545358851652,0.5,0.0,True,0.0

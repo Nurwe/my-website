@@ -17,7 +17,7 @@
   <meta name="apple-mobile-web-app-title" content="Nicolas Aragona">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260901-sa-nsa">
 </head>
 <body>
   <header class="site-header">
@@ -30,6 +30,8 @@
         <a href="#about">About</a>
         <a href="#work">What I Do</a>
         <a href="#projects">Projects</a>
+        <a href="#predictions">Predictions</a>
+        <a href="lab/?country=brazil">Lab</a>
         <a href="#cv">CV</a>
         <a href="#writings">Writings</a>
         <a href="#contact">Contact</a>
@@ -51,6 +53,7 @@
           </div>
         </div>
         <div class="hero-card">
+          <div class="focus-status"><span></span>Research in progress</div>
           <h2>Current focus</h2>
           <p>Fiscal Balance and Economic Growth: A Relationship Conditioned by Sovereign Risk.</p>
           <span class="tag">Argentina sovereign-risk thesis - Grade 6/6</span>
@@ -115,9 +118,16 @@
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Country Risk &amp; Macro Projects</p>
-          <h2>Portfolio ideas at the intersection of macro data, sovereign risk, and Latin America.</h2>
+          <h2>Live research and portfolio ideas at the intersection of macro data, sovereign risk, and Latin America.</h2>
         </div>
         <div class="posts-grid">
+          <article class="post-card brazil-project-card">
+            <div class="project-status"><span></span>Live research suite</div>
+            <p class="post-meta">Country Lab · Brazil available now</p>
+            <h3>Macro Lab</h3>
+            <p>A reusable country research workspace. Select Brazil to explore five complete dashboards and a production GDP nowcast.</p>
+            <a href="lab/?country=brazil">Open the Lab <span aria-hidden="true">→</span></a>
+          </article>
           <article class="post-card">
             <p class="post-meta">In development</p>
             <h3>Argentina Macro Risk Monitor</h3>
@@ -133,6 +143,105 @@
             <h3>Sovereign Risk Dashboard</h3>
             <p>Charts and indicators for debt, fiscal balance, EMBI spreads, FX pressure, reserves, inflation, and market-implied sovereign risk signals.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="predictions" class="section predictions-section">
+      <div class="container">
+        <div class="predictions-heading">
+          <div class="section-heading">
+            <p class="section-label">Macro predictions</p>
+            <h2>Explore my country outlooks.</h2>
+            <p>Select a highlighted country to see the variables I track, the forecast horizon, and the factors shaping my view.</p>
+          </div>
+          <div class="map-legend" aria-label="Map legend">
+            <span><i class="legend-dot active"></i>Outlook available</span>
+            <span><i class="legend-dot"></i>Coming later</span>
+          </div>
+        </div>
+
+        <div class="prediction-explorer" data-view="map">
+          <div class="map-panel">
+            <div class="map-toolbar">
+              <p id="map-instruction">Choose a country</p>
+              <button class="map-reset" type="button" hidden>Back to world map</button>
+            </div>
+            <div class="world-map" role="group" aria-labelledby="map-instruction">
+              <svg viewBox="0 0 1000 500" role="img" aria-label="Interactive world map with available country outlooks highlighted">
+                <defs>
+                  <linearGradient id="land-gradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#2a4962"/>
+                    <stop offset="1" stop-color="#183047"/>
+                  </linearGradient>
+                  <linearGradient id="active-country-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#99f6e4"/>
+                    <stop offset="1" stop-color="#2dd4bf"/>
+                  </linearGradient>
+                  <filter id="land-shadow" x="-10%" y="-10%" width="120%" height="125%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#020617" flood-opacity=".28"/>
+                  </filter>
+                </defs>
+                <g class="map-grid" aria-hidden="true">
+                  <path d="M0 125h1000M0 250h1000M0 375h1000M250 0v500M500 0v500M750 0v500"/>
+                </g>
+                <g class="map-countries" aria-label="Country boundaries" filter="url(#land-shadow)"></g>
+              </svg>
+              <p class="map-loading">Loading geographic boundaries…</p>
+              <div class="map-callout">3 country outlooks</div>
+            </div>
+            <div class="country-quick-list" aria-label="Countries with available outlooks">
+              <button type="button" data-country="argentina"><span class="flag">AR</span>Argentina</button>
+              <button type="button" data-country="brazil"><span class="flag">BR</span>Brazil</button>
+              <button type="button" data-country="switzerland"><span class="flag">CH</span>Switzerland</button>
+            </div>
+          </div>
+
+          <aside class="prediction-detail" aria-live="polite">
+            <div class="country-title">
+              <div class="country-code">AR</div>
+              <div><p>Country outlook</p><h3>Argentina</h3></div>
+            </div>
+            <p class="sample-notice">Preview data — final forecasts will be published here.</p>
+            <label class="variable-label" for="prediction-variable">Variable</label>
+            <select id="prediction-variable"></select>
+            <div class="model-control" id="model-control" hidden>
+              <div class="model-control-heading">
+                <label for="prediction-model">Forecast model</label>
+                <small id="model-description"></small>
+              </div>
+              <select id="prediction-model"></select>
+            </div>
+            <div class="forecast-card">
+              <div><span id="forecast-value-label">Forecast</span><strong id="forecast-value">—</strong></div>
+              <div id="forecast-secondary-cell" hidden><span id="forecast-secondary-label">Year on year</span><strong id="forecast-secondary-value">—</strong></div>
+              <div id="forecast-horizon-cell"><span>Horizon</span><strong id="forecast-horizon">—</strong></div>
+              <p id="forecast-summary"></p>
+            </div>
+            <div class="forecast-chart" id="forecast-chart" aria-label="Real GDP growth history and forecast chart"></div>
+            <div class="release-row">
+              <span>Next update</span><strong id="next-release">To be announced</strong>
+            </div>
+            <div class="factors-block">
+              <p>Factors to watch</p>
+              <ul id="forecast-factors"></ul>
+            </div>
+            <div class="methodology-card">
+              <div>
+                <span>Technical documentation</span>
+                <strong id="methodology-title">Methodology coming soon</strong>
+              </div>
+              <a id="methodology-download" class="methodology-download" href="#" aria-disabled="true">Coming soon</a>
+            </div>
+            <div class="country-research-card" id="country-research-card" hidden>
+              <div>
+                <span>Complete country workspace</span>
+                <strong>5 complete dashboards + GDP nowcast</strong>
+              </div>
+              <a href="lab/?country=brazil">Open Brazil in the Lab <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="method-note">Forecasts are personal research views, not investment advice.</p>
+          </aside>
         </div>
       </div>
     </section>
@@ -175,9 +284,9 @@
         <div class="section-heading">
           <p class="section-label">Writings</p>
           <h2>Academic writing and sovereign-risk analysis.</h2>
-          <a class="button secondary" href="writings/">Browse all writings</a>
+          <a class="button secondary" href="writings/" target="_blank">Browse all writings</a>
         </div>
-        <div class="posts-grid">
+        <div class="posts-grid featured-writing">
           <article class="post-card">
             <p class="post-meta">January 2026 - Bachelor Thesis</p>
             <h3>Fiscal Balance and Economic Growth: A Relationship Conditioned by Sovereign Risk</h3>
@@ -188,7 +297,7 @@
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact" class="section contact-section">
       <div class="container contact-card">
         <div>
           <p class="section-label">Contact</p>
@@ -207,9 +316,9 @@
     <div class="container footer-inner">
       <p>&copy; 2026 Nicolas Aragona - Economics Portfolio</p>
       <p>Applied macroeconomics, country risk, and economic data science.</p>
-    </div>
+     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260904-yoy-nsa"></script>
 </body>
 </html>
