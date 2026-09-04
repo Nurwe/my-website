@@ -49,6 +49,49 @@ function New-PublicationMapping {
     }
 }
 
+function Get-QuarterIndex {
+    param([string]$Period)
+
+    if ($Period -notmatch '^(\d{4})-(?:T|Q)([1-4])$') {
+        return $null
+    }
+    ([int]$Matches[1] * 4) + [int]$Matches[2] - 1
+}
+
+function Get-QuarterText {
+    param([int]$Index)
+
+    '{0}-T{1}' -f [math]::Floor($Index / 4), (($Index % 4) + 1)
+}
+
+function Assert-TwoQuarterForecasts {
+    $currentPath = Join-Path $SourcePath 'salidas\nowcasting_pib\nowcast_actual.csv'
+    $modelsPath = Join-Path $SourcePath 'salidas\nowcasting_pib\modelos\nowcasts_actuales_todos_modelos.csv'
+    if (-not (Test-Path -LiteralPath $currentPath -PathType Leaf) -or
+        -not (Test-Path -LiteralPath $modelsPath -PathType Leaf)) {
+        throw 'The source nowcast files required for the two-quarter publication check are missing.'
+    }
+
+    $observed = @(Import-Csv -LiteralPath $currentPath |
+        ForEach-Object { Get-QuarterIndex $_.ultimo_pib_observado } |
+        Where-Object { $null -ne $_ })
+    if (-not $observed.Count) {
+        throw 'The latest observed GDP quarter could not be read from nowcast_actual.csv.'
+    }
+
+    $latestObserved = ($observed | Measure-Object -Maximum).Maximum
+    $expected = @(
+        Get-QuarterText ($latestObserved + 1)
+        Get-QuarterText ($latestObserved + 2)
+    )
+    $available = @(Import-Csv -LiteralPath $modelsPath |
+        Select-Object -ExpandProperty periodo -Unique)
+    $missing = @($expected | Where-Object { $_ -notin $available })
+    if ($missing.Count) {
+        throw "Website sync stopped: model outputs do not yet contain both next GDP quarters. Missing: $($missing -join ', ')."
+    }
+}
+
 function Get-PublicationMappings {
     $mappings = @(
         New-PublicationMapping 'Dashboards\Dashboard_Real_Brasil.html' 'brazil\dashboards\real-economy.html'
@@ -216,6 +259,7 @@ function Write-SyncManifest {
 }
 
 function Invoke-BrazilSync {
+    Assert-TwoQuarterForecasts
     $mappings = @(Get-PublicationMappings)
     $updatedCount = 0
 

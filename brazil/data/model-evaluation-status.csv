@@ -1,6 +1,6 @@
 modelo,modelo_etiqueta,estado,fecha_produccion,fecha_evaluacion,fuente_fecha_evaluacion
-dfm_avanzado_estrategia3_lovo,DFM avanzado · leave-one-out automático,vigente,2026-09-04T18:03:45+02:00,2026-09-04T18:34:31+02:00,.evaluacion_modelo_completa
-dfm_avanzado_estrategia2_pesos,DFM avanzado · poda por contribución,vigente,2026-09-04T18:01:15+02:00,2026-09-04T18:14:59+02:00,.evaluacion_modelo_completa
-dfm_avanzado_estrategia1_lasso,DFM avanzado · LASSO como filtro,vigente,2026-09-04T18:00:24+02:00,2026-09-04T18:04:33+02:00,.evaluacion_modelo_completa
-dfm_lasso_sin_ar1,DFM · LASSO sin AR1,vigente,2026-09-04T15:00:32+02:00,2026-09-04T15:08:03+02:00,.evaluacion_modelo_completa
+dfm_avanzado_estrategia3_lovo,DFM avanzado · leave-one-out automático,evaluacion_pendiente,2026-09-04T19:42:31+02:00,2026-09-04T18:34:31+02:00,.evaluacion_modelo_completa
+dfm_avanzado_estrategia2_pesos,DFM avanzado · poda por contribución,evaluacion_pendiente,2026-09-04T19:43:37+02:00,2026-09-04T18:14:59+02:00,.evaluacion_modelo_completa
+dfm_avanzado_estrategia1_lasso,DFM avanzado · LASSO como filtro,evaluacion_pendiente,2026-09-04T19:42:54+02:00,2026-09-04T18:04:33+02:00,.evaluacion_modelo_completa
+dfm_lasso_sin_ar1,DFM · LASSO sin AR1,evaluacion_pendiente,2026-09-04T19:44:02+02:00,2026-09-04T15:08:03+02:00,.evaluacion_modelo_completa
 pesos_senal_fuerte,Bridge · señal contemporánea fuerte,vigente,2026-09-04T15:00:16+02:00,2026-09-04T15:07:36+02:00,.evaluacion_modelo_completa

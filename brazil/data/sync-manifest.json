@@ -1,7 +1,7 @@
 {
     "schemaVersion":  1,
-    "generatedAtUtc":  "2026-09-04T17:15:07.3680662Z",
-    "sourceSnapshotUtc":  "2026-09-04T16:35:07.4655501Z",
+    "generatedAtUtc":  "2026-09-04T17:44:47.7526794Z",
+    "sourceSnapshotUtc":  "2026-09-04T17:44:33.7369054Z",
     "fileCount":  25,
     "files":  [
                   {
@@ -42,44 +42,44 @@
                   },
                   {
                       "path":  "brazil/data/model-comparison.csv",
-                      "bytes":  1002,
-                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4561214Z",
-                      "sha256":  "03c93f158e4af052c4d1f6b405e5650803f03f90696c95e133715b112097743c"
+                      "bytes":  1635,
+                      "sourceLastModifiedUtc":  "2026-09-04T17:44:33.7369054Z",
+                      "sha256":  "d10d40a8d7f5ed531dfb790c951c8f3e5ce4ab49d1e3ec63166497040fe47cc2"
                   },
                   {
                       "path":  "brazil/data/model-rmse.csv",
                       "bytes":  27267,
-                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4541150Z",
+                      "sourceLastModifiedUtc":  "2026-09-04T17:44:33.7369054Z",
                       "sha256":  "5f57f75d21b52c76ae122e663e94664499dac91f0bd3991c19777fa2309517a1"
                   },
                   {
                       "path":  "brazil/data/model-evaluation-status.csv",
-                      "bytes":  838,
-                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4561214Z",
-                      "sha256":  "44597cba265f098fdce27121d7d606b36632db779aec2de9995e64bc46595873"
+                      "bytes":  890,
+                      "sourceLastModifiedUtc":  "2026-09-04T17:44:33.7369054Z",
+                      "sha256":  "6ace6ac08918709910d60b4850499ed39a4c7852febd8e1a8ab50aea369b9cea"
                   },
                   {
                       "path":  "brazil/data/model-variable-importance.csv",
                       "bytes":  382636,
-                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4655501Z",
+                      "sourceLastModifiedUtc":  "2026-09-04T17:44:33.7369054Z",
                       "sha256":  "fa93620948e9c9191343149c65e54efada0b741966fea20be2f0bb77b31ca41e"
                   },
                   {
                       "path":  "brazil/data/ensemble-performance.csv",
                       "bytes":  22248,
-                      "sourceLastModifiedUtc":  "2026-09-04T16:35:07.4561214Z",
+                      "sourceLastModifiedUtc":  "2026-09-04T17:44:33.7369054Z",
                       "sha256":  "5a66f1c09a3af2cd4e2f96b74763e41c7457e8b775c9249ab654ed5acb67f5bd"
                   },
                   {
                       "path":  "brazil/data/model-variants-vs-rolling.csv",
                       "bytes":  8361,
-                      "sourceLastModifiedUtc":  "2026-09-04T16:34:54.9680444Z",
+                      "sourceLastModifiedUtc":  "2026-09-04T17:44:21.9372168Z",
                       "sha256":  "d42058a393fb4d3b2e3cf6eba5dd5dd8abfe9f29d427e393dba1d93937f34379"
                   },
                   {
                       "path":  "brazil/data/model-benchmarks-post-covid.csv",
                       "bytes":  2,
-                      "sourceLastModifiedUtc":  "2026-09-04T16:34:55.1490354Z",
+                      "sourceLastModifiedUtc":  "2026-09-04T17:44:22.1205805Z",
                       "sha256":  "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
                   },
                   {

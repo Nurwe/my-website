@@ -27,7 +27,7 @@ Then open `http://127.0.0.1:8000/`.
 
 The five published dashboard files remain self-contained and unmodified so every chart, filter, download, detailed view, and print/PDF action stays available. `scripts/sync-brazil.ps1` safely mirrors the published dashboards and GDP-nowcast outputs from `C:\Users\narag\Desktop\Brasil - Nico` into the website. It copies only stable, changed files, replaces each destination atomically, and never writes to the source project.
 
-For each M1/M2/M3 information set, the website publishes the available specification with the lowest full-sample pseudo-out-of-sample RMSE relative to GDP AR(1). The rule is evaluated in the browser from the synchronized `model-rmse.csv` and `model-comparison.csv` outputs, so updated validation results automatically change the published model. No nowcasting methodology document is currently published; both interfaces display “Methodology coming soon” until the formal document is ready.
+The model pipeline and both website views enforce a permanent two-quarter publication horizon: the first two quarters after the latest observed GDP release are always selected. The nearest quarter is a nowcast using its actual M1/M2/M3 information set; a farther quarter with no monthly releases is labeled M0 and remains a model-generated forecast. For M1/M2/M3, the website publishes the available specification with the lowest full-sample pseudo-out-of-sample RMSE relative to GDP AR(1). M0 uses the earliest-vintage M1 ranking as a conservative proxy because the current historical evaluation contains M1/M2/M3 vintages. The sync stops before replacing the published snapshot if either required quarter is missing, so a partial model run cannot silently reduce the website to one quarter. No nowcasting methodology document is currently published; both interfaces display “Methodology coming soon” until the formal document is ready.
 
 Run a one-time sync:
 
@@ -35,16 +35,16 @@ Run a one-time sync:
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\sync-brazil.ps1
 ```
 
-Install the per-user weekly Windows sync and run it once immediately:
+Install the per-user weekly Windows publication task and run it once immediately:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-brazil-sync-task.ps1 -StartNow
 ```
 
-The task runs every Sunday at 09:00 and writes its ignored local log to `scripts/brazil-sync.log`. If the computer is off at that time, Windows runs it when the task becomes available again. The day and time can be customized during installation, for example with `-DayOfWeek Friday -At 18:00`. Remove it with:
+The task runs every Sunday at 09:00, synchronizes the validated Brazil snapshot, stages only files under `brazil/`, and pushes that focused commit to `origin/main` so GitHub Pages updates without manual intervention. It writes its ignored local log to `scripts/brazil-sync.log`. If the computer is off at that time, Windows runs it when the task becomes available again. The day and time can be customized during installation, for example with `-DayOfWeek Friday -At 18:00`. Remove it with:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\uninstall-brazil-sync-task.ps1
 ```
 
-This keeps the local website worktree synchronized. If the public site is deployed from GitHub, the resulting website changes still need to be committed and pushed through the normal deployment workflow; a cloud build cannot directly read a folder on this computer.
+The publisher stops before replacing or committing the website snapshot if either of the two required forecast quarters is absent. Git credentials must remain available to the scheduled Windows user; if GitHub rejects a push, the task fails visibly instead of staging unrelated website work.

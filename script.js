@@ -286,6 +286,37 @@ function quarterIndex(period) {
   return match ? Number(match[1]) * 4 + Number(match[2]) - 1 : null;
 }
 
+function quarterPeriod(index) {
+  return `${Math.floor(index / 4)}-T${(index % 4) + 1}`;
+}
+
+function brazilPublicationBaseRows(rows, comparisonRows, count = 2) {
+  const observedQuarters = rows
+    .map(row => quarterIndex(row.ultimo_pib_observado))
+    .filter(Number.isFinite);
+  if (!observedQuarters.length) return rows.slice(-count);
+
+  const latestObserved = Math.max(...observedQuarters);
+  const latestObservedPeriod = quarterPeriod(latestObserved);
+  return Array.from({ length: count }, (_, offset) => {
+    const period = quarterPeriod(latestObserved + offset + 1);
+    const existing = rows.find(row => row.periodo === period);
+    if (existing) return existing;
+
+    const alternatives = comparisonRows.filter(row => row.periodo === period);
+    const informationSets = alternatives
+      .map(row => Number(brazilRowInformationSet(row)))
+      .filter(Number.isFinite);
+    const informationSet = informationSets.length ? Math.max(...informationSets) : 0;
+    return {
+      periodo: period,
+      fecha_referencia: alternatives[0]?.fecha_referencia || '',
+      meses_disponibles: String(informationSet),
+      ultimo_pib_observado: latestObservedPeriod
+    };
+  });
+}
+
 function nextPublicationRow(rows) {
   if (!rows.length) return null;
   const observedQuarters = rows
@@ -324,14 +355,20 @@ function brazilRowRmseImprovement(row) {
   return value === '' || value === null || value === undefined ? Number.NaN : Number(value);
 }
 
+function brazilValidationInformationSet(months) {
+  return String(months) === '0' ? '1' : String(months);
+}
+
 function bestBrazilModelMetric(rmseRows, comparisonRows, months, period) {
+  const currentMonths = String(months);
+  const validationMonths = brazilValidationInformationSet(months);
   const availableModels = new Set(comparisonRows
-    .filter(row => row.periodo === period && brazilRowInformationSet(row) === String(months))
+    .filter(row => row.periodo === period && brazilRowInformationSet(row) === currentMonths)
     .map(brazilRowModelKey));
   return rmseRows
     .filter(row => (
       row.muestra === 'completa_con_covid'
-      && brazilRowInformationSet(row) === String(months)
+      && brazilRowInformationSet(row) === validationMonths
       && Number.isFinite(brazilRowRmseRatio(row))
       && availableModels.has(brazilRowModelKey(row))
     ))
@@ -353,6 +390,7 @@ function selectBrazilPublishedPrediction(baseRow, comparisonRows, rmseRows) {
   merged.published_model = selectedModel || merged.variante_modelo || 'rolling_120m';
   merged.rmse_modelo_sobre_ar1 = metric ? brazilRowRmseRatio(metric) : '';
   merged.mejora_rmse_vs_ar1_pct = metric ? brazilRowRmseImprovement(metric) : '';
+  merged.rmse_information_set = brazilValidationInformationSet(baseRow.meses_disponibles);
   return merged;
 }
 
@@ -405,7 +443,8 @@ async function loadBrazilNowcast() {
     const baseRows = parsePredictionCSV(await response.text());
     const comparisonRows = parsePredictionCSV(await comparisonResponse.text());
     const rmseRows = parsePredictionCSV(await rmseResponse.text());
-    const rows = baseRows.map(row => selectBrazilPublishedPrediction(row, comparisonRows, rmseRows));
+    const rows = brazilPublicationBaseRows(baseRows, comparisonRows, 2)
+      .map(row => selectBrazilPublishedPrediction(row, comparisonRows, rmseRows));
     growth.series = rows.map(row => ({
       year: row.periodo.replace('-T', ' Q'),
       value: Number(row.nowcast_pib_trimestral_pct),

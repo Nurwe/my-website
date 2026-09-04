@@ -174,6 +174,37 @@ function quarterIndex(period) {
   return match ? Number(match[1]) * 4 + Number(match[2]) - 1 : null;
 }
 
+function quarterPeriod(index) {
+  return `${Math.floor(index / 4)}-T${(index % 4) + 1}`;
+}
+
+function publicationBaseRows(rows, count = 2) {
+  const observedQuarters = rows
+    .map(row => quarterIndex(row.ultimo_pib_observado))
+    .filter(Number.isFinite);
+  if (!observedQuarters.length) return rows.slice(-count);
+
+  const latestObserved = Math.max(...observedQuarters);
+  const latestObservedPeriod = quarterPeriod(latestObserved);
+  return Array.from({ length: count }, (_, offset) => {
+    const period = quarterPeriod(latestObserved + offset + 1);
+    const existing = rows.find(row => row.periodo === period);
+    if (existing) return existing;
+
+    const alternatives = comparisonRows.filter(row => row.periodo === period);
+    const informationSets = alternatives
+      .map(row => Number(rowInformationSet(row)))
+      .filter(Number.isFinite);
+    const informationSet = informationSets.length ? Math.max(...informationSets) : 0;
+    return {
+      periodo: period,
+      fecha_referencia: alternatives[0]?.fecha_referencia || '',
+      meses_disponibles: String(informationSet),
+      ultimo_pib_observado: latestObservedPeriod
+    };
+  });
+}
+
 function nextPublicationRow(rows) {
   if (!rows.length) return null;
   const observedQuarters = rows
@@ -214,23 +245,30 @@ function rowRmseImprovement(row) {
   return numberValue(row?.mejora_rmse_vs_ar1_pct ?? row?.mejora_ar1_pct);
 }
 
+function validationInformationSet(months) {
+  return String(months) === '0' ? '1' : String(months);
+}
+
 function modelMetric(modelKey, months) {
+  const validationMonths = validationInformationSet(months);
   return rmseRows.find(row => (
     row.muestra === 'completa_con_covid'
-    && rowInformationSet(row) === String(months)
+    && rowInformationSet(row) === validationMonths
     && rowModelKey(row) === modelKey
     && rowRmseRatio(row) !== null
   ));
 }
 
 function bestModelMetric(months, period) {
+  const currentMonths = String(months);
+  const validationMonths = validationInformationSet(months);
   const availableModels = new Set(comparisonRows
-    .filter(row => row.periodo === period && rowInformationSet(row) === String(months))
+    .filter(row => row.periodo === period && rowInformationSet(row) === currentMonths)
     .map(rowModelKey));
   return rmseRows
     .filter(row => (
       row.muestra === 'completa_con_covid'
-      && rowInformationSet(row) === String(months)
+      && rowInformationSet(row) === validationMonths
       && rowRmseRatio(row) !== null
       && availableModels.has(rowModelKey(row))
     ))
@@ -252,6 +290,7 @@ function publishedPrediction(baseRow) {
   merged.published_model = selectedModel || merged.variante_modelo || 'rolling_120m';
   merged.rmse_modelo_sobre_ar1 = metric ? rowRmseRatio(metric) : '';
   merged.mejora_rmse_vs_ar1_pct = metric ? rowRmseImprovement(metric) : '';
+  merged.rmse_information_set = validationInformationSet(baseRow.meses_disponibles);
   return merged;
 }
 
@@ -263,9 +302,10 @@ function renderHeroNowcast(row) {
   document.querySelectorAll('[data-latest-months]').forEach(element => { element.textContent = `${row.meses_disponibles} / 3`; });
   setText('#pulse-model-chip', `Best vs AR(1) · ${modelName(row.published_model)}`);
   const ratio = numberValue(row.rmse_modelo_sobre_ar1);
+  const isM0 = String(row.meses_disponibles) === '0';
   setText('#pulse-model-note', ratio === null
     ? 'The published specification is selected by all-quarter pseudo-out-of-sample RMSE relative to AR(1). Point estimate, not investment advice.'
-    : `${modelName(row.published_model)} is published for M${row.meses_disponibles}: pseudo-out-of-sample RMSE is ${ratio.toFixed(3)}× AR(1). Point estimate, not investment advice.`);
+    : `${modelName(row.published_model)} is published for ${isM0 ? 'the M0 forecast using M1 validation' : `M${row.meses_disponibles}`}: pseudo-out-of-sample RMSE is ${ratio.toFixed(3)}× AR(1). Point estimate, not investment advice.`);
 }
 
 function updateGauge(value) {
@@ -282,21 +322,25 @@ function renderNowcast(row) {
   if (!row) return;
   const ratio = numberValue(row.rmse_modelo_sobre_ar1);
   const improvement = numberValue(row.mejora_rmse_vs_ar1_pct);
+  const isM0 = String(row.meses_disponibles) === '0';
   setText('#nowcast-model-status', `Published · ${modelName(row.published_model)}`);
   setText('#nowcast-period', displayPeriod(row.periodo));
   setText('#nowcast-reference-date', `Reference: ${displayDate(row.fecha_referencia)}`);
   setText('#nowcast-qoq', displayPercent(row.nowcast_pib_trimestral_pct));
   setText('#nowcast-yoy-original', displayPercent(row.nowcast_pib_interanual_original_pct));
-  setText('#nowcast-information', `M${row.meses_disponibles} · ${row.meses_disponibles} month${row.meses_disponibles === '1' ? '' : 's'}`);
+  setText('#nowcast-information', isM0 ? 'M0 · forecast' : `M${row.meses_disponibles} · ${row.meses_disponibles} month${row.meses_disponibles === '1' ? '' : 's'}`);
   const performance = ratio === null
     ? 'It is selected using the lowest all-quarter pseudo-out-of-sample RMSE relative to AR(1).'
-    : `${modelName(row.published_model)} is selected because its all-quarter pseudo-out-of-sample RMSE is ${ratio.toFixed(3)}× AR(1)${improvement === null ? '.' : `, an improvement of ${improvement.toFixed(1)}%.`}`;
-  setText('#nowcast-context', `The estimate uses ${row.meses_disponibles} monthly reading${row.meses_disponibles === '1' ? '' : 's'} and the latest observed GDP release from ${displayPeriod(row.ultimo_pib_observado)}. ${performance}`);
+    : `${modelName(row.published_model)} is selected because its ${isM0 ? 'earliest-vintage M1' : 'all-quarter'} pseudo-out-of-sample RMSE is ${ratio.toFixed(3)}× AR(1)${improvement === null ? '.' : `, an improvement of ${improvement.toFixed(1)}%.`}`;
+  const informationText = isM0
+    ? 'This is a model forecast made before monthly readings for the quarter are available'
+    : `The estimate uses ${row.meses_disponibles} monthly reading${row.meses_disponibles === '1' ? '' : 's'}`;
+  setText('#nowcast-context', `${informationText} and the latest observed GDP release is ${displayPeriod(row.ultimo_pib_observado)}. ${performance}`);
   updateGauge(row.nowcast_pib_trimestral_pct);
   renderModelComparison(row.periodo, row.meses_disponibles, row.published_model);
 }
 
-function buildPeriodTabs(defaultPeriod) {
+function buildPeriodTabs(nextReleasePeriod, selectedPeriod = nextReleasePeriod) {
   const tabs = document.querySelector('#nowcast-period-tabs');
   if (!tabs || !nowcastRows.length) return;
   tabs.innerHTML = '';
@@ -304,12 +348,15 @@ function buildPeriodTabs(defaultPeriod) {
   nowcastRows.forEach((row, index) => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.textContent = `${displayPeriod(row.periodo)}${row.periodo === defaultPeriod ? ' · next release' : ''}`;
+    button.textContent = `${displayPeriod(row.periodo)}${row.periodo === nextReleasePeriod ? ' · next release' : ''}`;
     button.dataset.period = row.periodo;
-    button.setAttribute('aria-pressed', String(row.periodo === defaultPeriod));
+    button.setAttribute('aria-pressed', String(row.periodo === selectedPeriod));
     button.addEventListener('click', () => {
       tabs.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       renderNowcast(row);
+      const address = new URL(window.location.href);
+      address.searchParams.set('period', row.periodo);
+      history.replaceState({}, '', `${address.pathname}${address.search}#nowcast`);
     });
     tabs.appendChild(button);
   });
@@ -340,7 +387,8 @@ function renderModelComparison(period, months, publishedModel) {
     const metric = modelMetric(key, informationSet);
     const ratio = rowRmseRatio(metric);
     const isPublished = key === publishedModel && informationSet === String(months);
-    const description = `${isPublished ? 'Published' : 'Alternative'} · M${informationSet}${ratio === null ? '' : ` · RMSE / AR(1) ${ratio.toFixed(3)}`}`;
+    const validationNote = informationSet === '0' ? ' · M1 validation' : '';
+    const description = `${isPublished ? 'Published' : 'Alternative'} · M${informationSet}${validationNote}${ratio === null ? '' : ` · RMSE / AR(1) ${ratio.toFixed(3)}`}`;
     const width = Math.max(2, (Math.abs(value) / maxMagnitude) * 48);
     const line = document.createElement('div');
     line.className = 'comparison-row';
@@ -411,13 +459,16 @@ async function loadNowcast() {
     const baseRows = parseCSV(await nowcastResponse.text());
     comparisonRows = parseCSV(await comparisonResponse.text());
     rmseRows = parseCSV(await rmseResponse.text());
-    nowcastRows = baseRows.map(publishedPrediction);
+    nowcastRows = publicationBaseRows(baseRows, 2).map(publishedPrediction);
     nowcastRows.sort((a, b) => a.periodo.localeCompare(b.periodo));
 
-    const publicationTarget = nextPublicationRow(nowcastRows);
-    renderHeroNowcast(publicationTarget);
-    buildPeriodTabs(publicationTarget?.periodo);
-    renderNowcast(publicationTarget);
+    const nextReleaseTarget = nextPublicationRow(nowcastRows);
+    const requestedPeriod = new URLSearchParams(window.location.search).get('period');
+    const selectedTarget = nowcastRows.find(row => row.periodo === requestedPeriod)
+      || nextReleaseTarget;
+    renderHeroNowcast(nextReleaseTarget);
+    buildPeriodTabs(nextReleaseTarget?.periodo, selectedTarget?.periodo);
+    renderNowcast(selectedTarget);
     renderSyncMetadata(manifest);
   } catch (error) {
     const chart = document.querySelector('#model-comparison-chart');
