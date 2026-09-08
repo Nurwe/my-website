@@ -35,16 +35,18 @@ Run a one-time sync:
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\sync-brazil.ps1
 ```
 
-Install the per-user weekly Windows publication task and run it once immediately:
+The successful dashboard-download and nowcasting-model launchers in `Brasil - Nico\Programador Tareas` call `sincronizar_sitio_local.bat` as their final step. This updates the local website immediately after any full or sector dashboard run and after every successful production-model run. Simulations and failed runs do not replace the website snapshot, and no Git command is executed by these hooks.
+
+Install the per-user weekly local safety sync and run it once immediately:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-brazil-sync-task.ps1 -StartNow
 ```
 
-The task runs every Sunday at 09:00, synchronizes the validated Brazil snapshot, stages only files under `brazil/`, and pushes that focused commit to `origin/main` so GitHub Pages updates without manual intervention. It writes its ignored local log to `scripts/brazil-sync.log`. If the computer is off at that time, Windows runs it when the task becomes available again. The day and time can be customized during installation, for example with `-DayOfWeek Friday -At 18:00`. Remove it with:
+The task runs every Sunday at 09:00 as a fallback and synchronizes only the validated local Brazil snapshot. It never stages, commits, or pushes files. It writes its ignored local log to `scripts/brazil-sync.log`. If the computer is off at that time, Windows runs it when the task becomes available again. The day and time can be customized during installation, for example with `-DayOfWeek Friday -At 18:00`. Remove it with:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\uninstall-brazil-sync-task.ps1
 ```
 
-The publisher stops before replacing or committing the website snapshot if either of the two required forecast quarters is absent. Git credentials must remain available to the scheduled Windows user; if GitHub rejects a push, the task fails visibly instead of staging unrelated website work.
+The synchronizer stops before replacing the website snapshot if either of the two required forecast quarters is absent. GitHub publication is deliberately manual; review the local changes and push them when ready. `scripts/publish-brazil.ps1` remains available as an explicit manual helper, but it is not called by either the post-run hooks or the weekly task.

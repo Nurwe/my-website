@@ -17,11 +17,11 @@ if ([string]::IsNullOrWhiteSpace($WebsiteRoot)) {
 
 $SourcePath = (Resolve-Path -LiteralPath $SourcePath).Path
 $WebsiteRoot = (Resolve-Path -LiteralPath $WebsiteRoot).Path
-$publishScript = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot 'publish-brazil.ps1')).Path
+$syncScript = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot 'sync-brazil.ps1')).Path
 $powerShellExe = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
 $currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 
-$arguments = '-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File "{0}" -SourcePath "{1}" -WebsiteRoot "{2}" -Remote origin -Branch main' -f $publishScript, $SourcePath, $WebsiteRoot
+$arguments = '-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File "{0}" -SourcePath "{1}" -WebsiteRoot "{2}"' -f $syncScript, $SourcePath, $WebsiteRoot
 $action = New-ScheduledTaskAction -Execute $powerShellExe -Argument $arguments -WorkingDirectory $WebsiteRoot
 $trigger = New-ScheduledTaskTrigger -Weekly -WeeksInterval 1 -DaysOfWeek $DayOfWeek -At $At
 $principal = New-ScheduledTaskPrincipal -UserId $currentUser -LogonType Interactive -RunLevel Limited
@@ -41,7 +41,7 @@ if ($existingTask -and $existingTask.State -eq 'Running') {
 
 Register-ScheduledTask `
     -TaskName $TaskName `
-    -Description 'Once a week, validates two Brazil forecast quarters, synchronizes the publication files, and pushes only brazil/ changes to GitHub Pages.' `
+    -Description 'Once a week, validates two Brazil forecast quarters and synchronizes the local website. GitHub publication remains manual.' `
     -Action $action `
     -Trigger $trigger `
     -Principal $principal `

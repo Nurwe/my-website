@@ -1,103 +1,103 @@
 {
     "schemaVersion":  1,
-    "generatedAtUtc":  "2026-09-08T06:25:12.9395725Z",
-    "sourceSnapshotUtc":  "2026-09-04T20:44:21.0521181Z",
+    "generatedAtUtc":  "2026-09-08T07:17:52.1536904Z",
+    "sourceSnapshotUtc":  "2026-09-08T07:12:01.1859738Z",
     "fileCount":  25,
     "files":  [
                   {
                       "path":  "brazil/dashboards/real-economy.html",
-                      "bytes":  4715526,
-                      "sourceLastModifiedUtc":  "2026-09-04T10:11:08.6084530Z",
-                      "sha256":  "4a018fbda17f4ea7c3c7339efe78c39a5041cf306c2e09b1b2fa576a46fe0d69"
+                      "bytes":  4721502,
+                      "sourceLastModifiedUtc":  "2026-09-08T07:02:30.1482931Z",
+                      "sha256":  "f20533fff17a3158f7c9013a9ce4372b808ad13d82b63d9c1ca9e9e0c21e42e8"
                   },
                   {
                       "path":  "brazil/dashboards/fiscal.html",
                       "bytes":  17836589,
-                      "sourceLastModifiedUtc":  "2026-09-04T10:11:09.7401335Z",
-                      "sha256":  "65ab2247c2b0aa3d6a0c859d752572f8589479e874595b7f6aaaa3360c03a007"
+                      "sourceLastModifiedUtc":  "2026-09-08T07:02:31.0509240Z",
+                      "sha256":  "a12fa00473cd75c07a0034f41464208a7c29679a7baaa7f16145cffe76f82c7d"
                   },
                   {
                       "path":  "brazil/dashboards/financial.html",
-                      "bytes":  7311581,
-                      "sourceLastModifiedUtc":  "2026-09-04T10:11:08.3266495Z",
-                      "sha256":  "421f2bbfb8e1b04cec9968264772a00679632c63e4cf946506104f92bc0db925"
+                      "bytes":  7312391,
+                      "sourceLastModifiedUtc":  "2026-09-08T07:02:29.9090122Z",
+                      "sha256":  "3beda8853dda94599c732d9de7f30af236e620b96e98047ec23f7410c55571a4"
                   },
                   {
                       "path":  "brazil/dashboards/external.html",
-                      "bytes":  20995169,
-                      "sourceLastModifiedUtc":  "2026-09-04T10:11:07.8417426Z",
-                      "sha256":  "06921caefa0e233e9f3885c21977b2bd17f8215c59ff50dd2ecfbbc70a88bbd8"
+                      "bytes":  20975843,
+                      "sourceLastModifiedUtc":  "2026-09-08T07:02:29.5092472Z",
+                      "sha256":  "128fdcd23d329a80b6c6ae26ed2181ffdfa7af1bccb690d3c30bea90e983f18a"
                   },
                   {
                       "path":  "brazil/dashboards/calendar.html",
                       "bytes":  290507,
-                      "sourceLastModifiedUtc":  "2026-09-04T10:11:09.7495160Z",
-                      "sha256":  "716f15cbe6a83dba6da6df42974c876d5ae672efb2375ad3e1884b4cc63b12fc"
+                      "sourceLastModifiedUtc":  "2026-09-08T07:02:31.0660268Z",
+                      "sha256":  "daa640ec623a621721ce8e315a52cf8d1bec2922277fd50a2ffbb182f006ca40"
                   },
                   {
                       "path":  "brazil/data/nowcast-current.csv",
                       "bytes":  1048,
-                      "sourceLastModifiedUtc":  "2026-09-04T13:00:16.9967748Z",
+                      "sourceLastModifiedUtc":  "2026-09-08T07:04:19.2040494Z",
                       "sha256":  "41cf0a53f2b8e9319c1de89eb145b8b8c6fa565b46db527d885e22149c2badd6"
                   },
                   {
                       "path":  "brazil/data/model-comparison.csv",
-                      "bytes":  1778,
-                      "sourceLastModifiedUtc":  "2026-09-04T20:44:21.0362685Z",
-                      "sha256":  "b8ee11b6cb1994af4bc1056a7cf2cc570e0c22b0ccb166fbfc8c258871610281"
+                      "bytes":  1779,
+                      "sourceLastModifiedUtc":  "2026-09-08T07:12:01.1759457Z",
+                      "sha256":  "1c4125eb8e85cafba7dfe0d1fef849fef839398269631dfefa8a7bd7eb30a628"
                   },
                   {
                       "path":  "brazil/data/model-rmse.csv",
-                      "bytes":  32422,
-                      "sourceLastModifiedUtc":  "2026-09-04T20:44:21.0362685Z",
-                      "sha256":  "3d460b27179f650915974630ac503bfaabe7c1b8b1551b9339f26be569525cff"
+                      "bytes":  32420,
+                      "sourceLastModifiedUtc":  "2026-09-08T07:12:01.1739406Z",
+                      "sha256":  "dc9854a017f8bd2998f9f1b9f3a5ee15d646fc16920f76927e3d7523197d6a2c"
                   },
                   {
                       "path":  "brazil/data/model-evaluation-status.csv",
-                      "bytes":  1024,
-                      "sourceLastModifiedUtc":  "2026-09-04T20:44:21.0362685Z",
-                      "sha256":  "a7e4719c44c0c4a6f94c062f87874696e1e027b36b4b8a8c337961fda7c3bf18"
+                      "bytes":  1011,
+                      "sourceLastModifiedUtc":  "2026-09-08T07:12:01.1759457Z",
+                      "sha256":  "04413b214b04424ccf14e8c9a01b26066f5ae8bcab0e99eced601ed194f82389"
                   },
                   {
                       "path":  "brazil/data/model-variable-importance.csv",
                       "bytes":  382636,
-                      "sourceLastModifiedUtc":  "2026-09-04T20:44:21.0521181Z",
+                      "sourceLastModifiedUtc":  "2026-09-08T07:12:01.1859738Z",
                       "sha256":  "fa93620948e9c9191343149c65e54efada0b741966fea20be2f0bb77b31ca41e"
                   },
                   {
                       "path":  "brazil/data/ensemble-performance.csv",
                       "bytes":  22248,
-                      "sourceLastModifiedUtc":  "2026-09-04T20:44:21.0362685Z",
+                      "sourceLastModifiedUtc":  "2026-09-08T07:12:01.1779518Z",
                       "sha256":  "5a66f1c09a3af2cd4e2f96b74763e41c7457e8b775c9249ab654ed5acb67f5bd"
                   },
                   {
                       "path":  "brazil/data/model-variants-vs-rolling.csv",
-                      "bytes":  8361,
-                      "sourceLastModifiedUtc":  "2026-09-04T17:44:21.9372168Z",
-                      "sha256":  "d42058a393fb4d3b2e3cf6eba5dd5dd8abfe9f29d427e393dba1d93937f34379"
+                      "bytes":  8356,
+                      "sourceLastModifiedUtc":  "2026-09-08T07:11:50.8591763Z",
+                      "sha256":  "87e3fbfc94253912df4a4445ae9ade1e9edc467cbe350bc36aaada0b4dd1197a"
                   },
                   {
                       "path":  "brazil/data/model-benchmarks-post-covid.csv",
                       "bytes":  2,
-                      "sourceLastModifiedUtc":  "2026-09-04T17:44:22.1205805Z",
+                      "sourceLastModifiedUtc":  "2026-09-08T07:11:51.0282209Z",
                       "sha256":  "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
                   },
                   {
                       "path":  "brazil/data/component-forecasts.csv",
                       "bytes":  2083,
-                      "sourceLastModifiedUtc":  "2026-09-04T13:00:16.9977455Z",
+                      "sourceLastModifiedUtc":  "2026-09-08T07:04:19.2055554Z",
                       "sha256":  "230610629e246e6aaf8a306b1e438ad0db80e1e57139666baa2bbcd3961710ba"
                   },
                   {
                       "path":  "brazil/data/model-variables.csv",
-                      "bytes":  10591,
-                      "sourceLastModifiedUtc":  "2026-09-04T13:00:17.1507255Z",
-                      "sha256":  "ca1e423e5ba6dc6d35dc68c46ed3aebf5f8d3ce876e4925bd9b1f90eb2a60488"
+                      "bytes":  10589,
+                      "sourceLastModifiedUtc":  "2026-09-08T07:04:19.3317422Z",
+                      "sha256":  "e48fb7d8bd4a3d9bc8d668996a5a58eacdf192d31b532ebe32e72a5c19ab77ef"
                   },
                   {
                       "path":  "brazil/data/model-weights.csv",
                       "bytes":  1102,
-                      "sourceLastModifiedUtc":  "2026-09-04T13:00:17.0017454Z",
+                      "sourceLastModifiedUtc":  "2026-09-08T07:04:19.2099476Z",
                       "sha256":  "c41e47ec8a24bdd9472dd43ca3c0c6e2b5e497e5a88d366b33d868195b01ac78"
                   },
                   {
