@@ -788,8 +788,168 @@ tbody tr:nth-child(even) td {
 }
 
 </style>
-  </head>
-  <body>
+  <!-- DISENO_COMUN_HEAD --><style id="diseno-comun-css">/* Shared visual contract. Series colours retain their existing meaning. */
+body[data-diseno-comun] {
+  --ui-ink:#172b36; --ui-muted:#52646e; --ui-line:#dce3e6;
+  --ui-bg:#f6f8f9; --ui-paper:#fff; --ui-accent:#17645b; --ui-soft:#eaf3f0;
+  --plantilla-fondo:var(--ui-bg); --plantilla-papel:var(--ui-paper);
+  --plantilla-tinta:var(--ui-ink); --plantilla-suave:var(--ui-muted);
+  --plantilla-borde:var(--ui-line); --plantilla-azul:var(--ui-accent);
+  --plantilla-azul-oscuro:var(--ui-ink); --plantilla-sombra:none;
+  --plantilla-radio:8px; --plantilla-ancho:1440px;
+  --bg:var(--ui-bg); --fondo:var(--ui-bg); --ink:var(--ui-ink); --tinta:var(--ui-ink);
+  --muted:var(--ui-muted); --suave:var(--ui-muted); --borde:var(--ui-line); --line:var(--ui-line);
+  --papel:var(--ui-paper); --papel-elevado:var(--ui-paper); --papel-raya:#f3f6f7;
+  --sombra:none; --serif:system-ui,-apple-system,"Segoe UI",sans-serif;
+  margin:0; padding:0; background:var(--ui-bg); color:var(--ui-ink);
+  font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+body[data-diseno-comun] *, body[data-diseno-comun] *::before, body[data-diseno-comun] *::after {box-sizing:border-box}
+body[data-diseno-comun] [hidden],body[data-diseno-comun] .ui-group-hidden,body[data-diseno-comun] .vista-dashboard--oculta{display:none!important}
+body[data-diseno-comun] .cabecera,body[data-diseno-comun] .hero,body[data-diseno-comun] .pd-jump{display:none!important}
+.ui-header{background:#fff;border-bottom:1px solid var(--ui-line);color:var(--ui-ink)}
+.ui-masthead,.ui-heading,.ui-metadata,.ui-footer,body[data-diseno-comun] .ui-content{width:min(calc(100% - 64px),1440px);margin-left:auto;margin-right:auto;max-width:1440px}
+.ui-masthead{display:flex;align-items:center;justify-content:space-between;gap:30px;min-height:82px;border-bottom:1px solid var(--ui-line)}
+.ui-brand{display:flex;align-items:center;gap:11px;color:var(--ui-ink);font-size:17px;font-weight:700;text-decoration:none;flex-shrink:0}
+.ui-mark{width:36px;height:36px;background:var(--ui-accent);color:white;display:grid;place-items:center;border-radius:6px;font-size:13px;letter-spacing:.04em}
+.ui-brand-sub{display:block;font-size:11px;font-weight:500;color:var(--ui-muted)}
+#ui-dashboards{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:0;padding:0;background:none;border:0}
+#ui-dashboards a{padding:9px 12px;color:var(--ui-muted);text-decoration:none;font-size:13px;font-weight:550;border-radius:5px;white-space:nowrap}
+#ui-dashboards a:hover{background:#f2f5f6;color:var(--ui-ink)}
+#ui-dashboards a[aria-current=page]{background:var(--ui-soft);color:#14574f;font-weight:700}
+.ui-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:30px;padding-bottom:20px}
+.ui-eyebrow{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--ui-muted);margin:0 0 8px}
+body[data-diseno-comun] .ui-heading h1{font:650 32px/1.18 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.025em;margin:0 0 10px;color:var(--ui-ink)}
+.ui-description{font-size:14px;color:var(--ui-muted);margin:0;max-width:820px;line-height:1.5}
+.ui-actions{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0;align-self:center}
+.ui-metadata{display:flex;flex-wrap:wrap;gap:8px 24px;padding-bottom:20px;color:var(--ui-muted);font-size:11px;line-height:1.5}
+.ui-metadata>span+span{position:relative}
+.ui-metadata #stamp{margin:0;font:inherit;color:inherit}
+.ui-skip{position:fixed;top:8px;left:8px;transform:translateY(-180%);z-index:2000;padding:12px 18px;background:var(--ui-ink);color:white}
+.ui-skip:focus{transform:none}
+body[data-diseno-comun] .salto-contenido{display:none}
+body[data-diseno-comun] .ui-content{padding:0 0 32px;margin-top:0;display:block;min-height:55vh}
+.ui-topicbar{padding:20px 0;margin:0 0 24px;border-bottom:1px solid var(--ui-line)}
+body[data-diseno-comun] .ui-topicbar .selector-vista{position:static;display:block;padding:0;margin:0;border:0;border-radius:0;box-shadow:none;background:none;min-height:0}
+body[data-diseno-comun] .ui-topicbar .selector-vista__encabezado,
+body[data-diseno-comun] .ui-topicbar .selector-vista__estado,
+body[data-diseno-comun] .ui-topicbar .controles-vistas>div:first-child,
+body[data-diseno-comun] .ui-topicbar .opcion-vista__numero,
+body[data-diseno-comun] .ui-topicbar .opcion-vista__kicker,
+body[data-diseno-comun] .ui-topicbar .opcion-vista__cobertura,
+body[data-diseno-comun] .ui-topicbar .opcion-vista small{display:none!important}
+body[data-diseno-comun] .ui-topicbar .selector-vista__opciones,
+body[data-diseno-comun] .ui-topicbar .controles-vistas__opciones{display:flex!important;flex-wrap:wrap;gap:6px;width:100%;grid-template-columns:none;padding:0;margin:0}
+body[data-diseno-comun] .ui-topicbar .opcion-vista{display:inline-flex;align-items:center;justify-content:center;flex:0 1 auto;gap:0;width:auto;min-width:0;min-height:40px;margin:0;padding:9px 14px;border:1px solid transparent;border-radius:6px;box-shadow:none;background:transparent;color:var(--ui-muted);font-size:13px;font-weight:550;text-align:center;line-height:1.35;transform:none}
+body[data-diseno-comun] .ui-topicbar .opcion-vista strong{font:inherit;color:inherit;margin:0}
+body[data-diseno-comun] .ui-topicbar .opcion-vista:hover{background:#edf1f3;color:var(--ui-ink);transform:none}
+body[data-diseno-comun] .ui-topicbar .opcion-vista[aria-pressed=true]{background:#fff;border-color:#bdccc9;color:var(--ui-accent);font-weight:700}
+body[data-diseno-comun][data-ui-depth=true] .ui-topicbar .opcion-vista:not(.ui-depth-button){background:transparent;border-color:transparent;color:var(--ui-muted);font-weight:550}
+body[data-diseno-comun] .ui-topicbar .ui-depth-button{border-left-color:var(--ui-line);margin-left:auto}
+.ui-topic-mobile{display:none}
+body[data-diseno-comun] .ui-content>#profundidad{display:none}
+body[data-diseno-comun][data-ui-depth=true] .ui-content>:not(.ui-topicbar):not(#profundidad){display:none!important}
+body[data-diseno-comun][data-ui-depth=true] .ui-content>#profundidad{display:block;margin:0}
+body[data-diseno-comun] :is(.panel,.card,.kpi,.tarjeta-kpi,.tarjeta-pulso,.panel-canal,.resumen-motor__item,.pd-panel){border-radius:8px;box-shadow:none;background:#fff;border:1px solid var(--ui-line);color:var(--ui-ink)}
+body[data-diseno-comun] :is(.panel,.card,.pd-panel){padding:22px}
+body[data-diseno-comun] :is(.kpi,.tarjeta-kpi){padding:18px 20px;min-width:0;border-top:1px solid var(--ui-line);border-left:1px solid var(--ui-line)}
+body[data-diseno-comun] :is(.kpi,.tarjeta-kpi)::before,body[data-diseno-comun] :is(.kpi,.tarjeta-kpi)::after{display:none}
+body[data-diseno-comun] .kpi>strong,body[data-diseno-comun] .tarjeta-kpi__valor{font-family:inherit;font-size:29px;font-weight:650;letter-spacing:-.025em;color:var(--ui-ink);line-height:1.2;overflow-wrap:anywhere}
+body[data-diseno-comun] :is(.tarjeta-kpi__titulo,.kpi>p,.kpi>span){font-size:12px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ui-muted)}
+body[data-diseno-comun] .tarjeta-kpi__detalle{font-size:12px;display:block;color:var(--ui-muted)}
+body[data-diseno-comun] .tarjeta-kpi__detalle strong{font-size:12px;font-family:inherit;letter-spacing:0}
+body[data-diseno-comun] .tarjeta-kpi__detalle strong[class]{display:block;margin-top:5px}
+body[data-diseno-comun] .tarjeta-kpi__estado{font-size:11px;font-weight:700;letter-spacing:0;padding:4px 7px;color:#fff;border-radius:4px}
+body[data-diseno-comun] .tarjeta-kpi__cabecera-estado{min-height:26px}
+body[data-diseno-comun] :is(.rejilla-kpi,.kpis,.grid){gap:14px}
+body[data-diseno-comun] :is(h2,h3){color:var(--ui-ink);letter-spacing:-.015em;line-height:1.3}
+body[data-diseno-comun] h2{font-size:23px;font-weight:650}
+body[data-diseno-comun] h3{font-size:18px;font-weight:650}
+body[data-diseno-comun] :is(.panel__encabezado,.section-head,.pd-heading){margin-bottom:18px;gap:16px;flex-wrap:wrap}
+body[data-diseno-comun] :is(.sobrelinea,.pd-eyebrow){color:var(--ui-muted);font-size:10px;letter-spacing:.07em;font-weight:650}
+body[data-diseno-comun] :is(.subtitulo,.intro__texto,.panel__descripcion,.pd-muted,.pd-footnote){color:var(--ui-muted);line-height:1.55}
+body[data-diseno-comun] :is(.intro,.encabezado-vista){margin:0 0 22px;gap:16px;flex-wrap:wrap}
+body[data-diseno-comun] :is(.intro,.encabezado-vista) h2{margin:0 0 6px}
+body[data-diseno-comun] button,body[data-diseno-comun] input,body[data-diseno-comun] select{font-family:inherit}
+body[data-diseno-comun] button{border-radius:5px;box-shadow:none}
+body[data-diseno-comun] :is(.ui-actions button,.boton,.boton-secundario,.boton-imprimir,.pd-panel button){background:#fff;color:var(--ui-ink);border:1px solid #bfccd1;padding:9px 13px;min-height:38px;font-size:12px;font-weight:600;border-radius:5px}
+body[data-diseno-comun] :is(.ui-actions button,.boton-secundario,.boton-imprimir,.pd-panel button):hover{background:#edf3f1}
+body[data-diseno-comun] :is(input:not([type=checkbox]):not([type=radio]):not([type=range]),select){background:#fff;color:var(--ui-ink);border:1px solid #bfccd1;border-radius:5px;min-height:38px;padding:8px 10px;max-width:100%;font-size:13px}
+body[data-diseno-comun] :is(button,a,input,select,summary):focus-visible{outline:3px solid #277dba!important;outline-offset:3px!important}
+body[data-diseno-comun] :is(button,input,select):disabled{cursor:not-allowed;opacity:.5}
+body[data-diseno-comun] :is(.segmentado-unidad,.control-periodo,.filtro-sectores){border-radius:5px;box-shadow:none}
+body[data-diseno-comun] :is(.segmentado-unidad,.control-periodo,.filtro-sectores) button[aria-pressed=true],
+body[data-diseno-comun] :is(.segmentado-unidad,.control-periodo,.filtro-sectores) button.activo{background:var(--ui-accent);color:#fff;border-color:var(--ui-accent)}
+body[data-diseno-comun] .control-rango-grafico button[aria-pressed=true]{background:var(--ui-accent);color:#fff;border-color:var(--ui-accent)}
+body[data-diseno-comun] .control-rango-grafico button{font-weight:550;box-shadow:none;border-radius:5px}
+body[data-diseno-comun] .segmentado{background:#eef2f3;border-radius:6px;box-shadow:none}
+body[data-diseno-comun] .segmentado label:has(input:checked){background:var(--ui-accent);color:#fff;box-shadow:none;border-radius:5px}
+body[data-diseno-comun] table{font-size:13px;border-collapse:collapse;font-variant-numeric:tabular-nums}
+body[data-diseno-comun] th{background:#f1f5f6;color:#425762;font-size:12px;font-weight:650;letter-spacing:0;text-transform:none;padding:12px;border-bottom:1px solid var(--ui-line)}
+body[data-diseno-comun] td{padding:11px 12px;border-bottom-color:#e9edef}
+body[data-diseno-comun] tbody tr:hover{background:#f5f8f9}
+body[data-diseno-comun] :is(.tabla-scroll,.table-wrap,.pd-table-scroll){border-radius:5px;max-width:100%;overflow:auto}
+body[data-diseno-comun] :is(.aviso-datos,.notice){border-radius:6px;box-shadow:none;font-size:12px}
+body[data-diseno-comun] .bloque-seccion__num{display:none}
+body[data-diseno-comun] .tarjeta-pulso__nombre{font-size:13px;line-height:1.4}
+body[data-diseno-comun] .tarjeta-pulso__periodo{font-size:11px}
+body[data-diseno-comun] .tarjeta-pulso__rezago{font-size:10px}
+body[data-diseno-comun] .tarjeta-pulso__valor strong{font-family:inherit;font-size:28px;font-weight:650}
+body[data-diseno-comun] .pd-panel{--pd-ink:var(--ui-ink);--pd-green:var(--ui-accent);--pd-border:var(--ui-line);max-width:none;width:100%;font-family:inherit}
+body[data-diseno-comun] .pd-picker{background:#f3f6f7;border-radius:6px}
+body[data-diseno-comun] .pd-chip{border-radius:5px;background:#eef3f2}
+body[data-diseno-comun] .pd-panel #pd-show{background:var(--ui-accent);color:#fff;border-color:var(--ui-accent)}
+body[data-diseno-comun] .pd-stat{background:#f6f8f9}
+body[data-diseno-comun] .pd-panel .pd-top{font-size:12px}
+.ui-footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--ui-line);padding:20px 0 30px;color:var(--ui-muted);font-size:11px}
+.ui-footer a{color:var(--ui-accent)}
+body[data-diseno-comun][data-ui-sector=nowcast] .controls{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+body[data-diseno-comun][data-ui-sector=nowcast] .control{border-radius:6px;box-shadow:none}
+body[data-diseno-comun][data-ui-sector=nowcast] .control>label{font-size:12px;font-weight:600;text-transform:none;letter-spacing:0}
+body[data-diseno-comun] .ui-model-picker{grid-column:1 / -1}
+body[data-diseno-comun] .ui-model-picker summary{font-size:12px;font-weight:600;cursor:pointer}
+body[data-diseno-comun] .ui-model-picker .chips{margin-top:12px}
+body[data-diseno-comun] .control .chip{font-size:12px;font-weight:500;text-transform:none;letter-spacing:0;margin:0;display:inline-flex;padding:6px 9px}
+body[data-diseno-comun] #bestModel{font-size:22px}
+body[data-diseno-comun] :is(.pie,.footer){font-size:11px;color:var(--ui-muted);background:transparent;box-shadow:none}
+@media(min-width:901px){body[data-diseno-comun][data-ui-sector=panorama] .rejilla-pulso{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1100px){.ui-masthead{gap:16px}.ui-brand-sub{display:none}#ui-dashboards a{padding:8px;font-size:12px}.ui-heading{align-items:flex-start}.ui-actions{max-width:180px;justify-content:flex-end}}
+@media(max-width:760px){
+  .ui-masthead,.ui-heading,.ui-metadata,.ui-footer,body[data-diseno-comun] .ui-content{width:calc(100% - 32px)}
+  .ui-masthead{display:block;padding:16px 0 12px}.ui-brand{font-size:15px}.ui-brand-sub{display:inline;margin-left:8px;font-size:11px}
+  .ui-mark{width:30px;height:30px;font-size:11px}#ui-dashboards{margin-top:12px;gap:3px;justify-content:flex-start}#ui-dashboards a{font-size:12px;padding:7px 9px}
+  .ui-heading{padding-top:22px;display:block;padding-bottom:16px}.ui-heading h1,body[data-diseno-comun] .ui-heading h1{font-size:28px}
+  .ui-actions{margin-top:16px;max-width:none;justify-content:flex-start}.ui-description{font-size:13px}.ui-metadata{font-size:10px;gap:5px 16px;padding-bottom:16px}
+  .ui-topicbar{padding:16px 0;margin-bottom:20px}.ui-topicbar .selector-vista{display:none!important}
+  .ui-topic-mobile{display:flex;align-items:center;gap:16px;font-size:12px;font-weight:650}.ui-topic-mobile select{flex:1;width:auto;min-width:0}
+  body[data-diseno-comun] :is(.panel,.card,.pd-panel){padding:16px}
+  body[data-diseno-comun] :is(.kpi,.tarjeta-kpi){padding:16px}
+  body[data-diseno-comun] h2{font-size:21px}body[data-diseno-comun] h3{font-size:17px}
+  body[data-diseno-comun] .rejilla-pulso{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ui-footer{display:block}.ui-footer>*{display:block;margin-bottom:8px}
+}
+@media(max-width:450px){body[data-diseno-comun] .rejilla-pulso{grid-template-columns:1fr}body[data-diseno-comun][data-ui-sector=nowcast] .controls{grid-template-columns:1fr}body[data-diseno-comun] .ui-heading h1{font-size:26px}}
+@media(prefers-reduced-motion:reduce){body[data-diseno-comun] *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{
+  body[data-diseno-comun]{background:#fff;color:#111}
+  .ui-masthead,.ui-actions,.ui-topicbar,.ui-skip,.ui-footer>a{display:none!important}
+  .ui-heading,.ui-metadata,.ui-footer,body[data-diseno-comun] .ui-content{width:100%;max-width:none}
+  .ui-heading{padding-top:0}.ui-header{border:0}.ui-metadata{padding-bottom:12px}
+  body[data-diseno-comun] :is(.panel,.card,.kpi,.tarjeta-pulso){box-shadow:none;break-inside:avoid}
+  body[data-diseno-comun] :is(.tabla-scroll,.table-wrap){max-height:none;overflow:visible}
+}
+</style><script>window.__UI_REQUESTED_HASH__=location.hash;</script><!-- /DISENO_COMUN_HEAD -->
+</head>
+  <body data-diseno-comun="1"><!-- DISENO_COMUN_HEADER -->
+<a class="ui-skip" href="#ui-main">Ir al contenido</a>
+<header class="ui-header" id="ui-top">
+  <div class="ui-masthead"><a class="ui-brand" id="ui-home"><span class="ui-mark" aria-hidden="true">BR</span><span>Brasil<span class="ui-brand-sub">Datos económicos</span></span></a><nav id="ui-dashboards" aria-label="Dashboards"></nav></div>
+  <div class="ui-heading"><div><p class="ui-eyebrow">BRASIL / CALENDARIO</p><h1>Calendario de publicaciones</h1><p class="ui-description">Fechas de publicación, períodos de referencia y fuentes de los datos.</p></div><div class="ui-actions"><button type="button" id="ui-print">Imprimir / PDF</button></div></div>
+  <div class="ui-metadata" id="ui-metadata"><span>Período y unidad indicados en cada serie</span></div>
+</header>
+<!-- /DISENO_COMUN_HEADER -->
+
     <a class="salto-contenido" href="#contenidoPrincipal">Ir al contenido</a>
     <header class="cabecera">
       <div class="cabecera__contenido">
@@ -827,7 +987,7 @@ tbody tr:nth-child(even) td {
 
       <section class="vista-dashboard" data-vista-dashboard="proximas">
         <div class="encabezado-vista">
-          <div><p class="sobrelinea">Orden cronológico</p><h2>Próximas publicaciones</h2><p class="subtitulo">Las 24 publicaciones monitoreadas, ordenadas por fecha estimada. Usá los filtros para acotar por sector.</p></div>
+          <div><p class="sobrelinea">Orden cronológico</p><h2>Próximas publicaciones</h2><p class="subtitulo">Las publicaciones monitoreadas, ordenadas por fecha estimada. Usá los filtros para acotar por sector.</p></div>
           <div class="filtro-sectores" id="filtroSectoresAgenda" role="group" aria-label="Filtrar por sector"></div>
         </div>
         <ol class="linea-tiempo" id="lineaTiempo"></ol>
@@ -881,9 +1041,178 @@ tbody tr:nth-child(even) td {
     </main>
 
     <footer class="pie"><div><strong>Brasil · Calendario de publicaciones</strong><span>Calculado a partir de la última actualización disponible en los tableros fiscal, real, financiero y externo.</span></div></footer>
-  
+  <!-- DISENO_COMUN_SCRIPT --><script id="diseno-comun-config" type="application/json">{"sector": "calendario", "pages": {"panorama": ["Panorama", "Panorama macroeconómico", "Indicadores principales de actividad, precios, finanzas públicas y sector externo.", "Panorama_Macroeconomico"], "real": ["Sector real", "Sector real", "Actividad, PIB, consumo, inflación, energía, pobreza y empleo.", "Real"], "financiero": ["Financiero", "Sector financiero", "Balance del Banco Central, dinero, tasas, crédito y riesgo soberano.", "Financiero"], "fiscal": ["Fiscal", "Sector fiscal", "Resultados fiscales, gasto, deuda e instituciones públicas.", "Fiscal"], "externo": ["Externo", "Sector externo", "Comercio, precios, tipo de cambio, cuenta corriente y reservas.", "Externo"], "calendario": ["Calendario", "Calendario de publicaciones", "Fechas de publicación, períodos de referencia y fuentes de los datos.", "Calendario"], "nowcast": ["Nowcasting", "Evaluación del nowcasting", "Precisión histórica, pronósticos actuales y vigencia de los modelos de PIB.", "Rendimiento_Nowcasting"]}}</script><script>(() => {
+  'use strict';
+  const config = JSON.parse(document.getElementById('diseno-comun-config').textContent);
+  function init() {
+    if (document.body.dataset.uiReady) return;
+    const main = document.querySelector('main');
+    if (!main) return;
+    document.body.dataset.uiReady = 'true';
+    document.body.dataset.uiSector = config.sector;
+    main.classList.add('ui-content');
+    const originalId = main.id;
+    if (!originalId) main.id = 'ui-main';
+    document.querySelector('.ui-skip').href = '#'+main.id;
+    main.tabIndex = -1;
+    const $ = id => document.getElementById(id);
+    const clean = node => node?.textContent.replace(/\s+/g,' ').trim() || '';
+    const initialHash=window.__UI_REQUESTED_HASH__??location.hash;
+    const prefix = /\/Dashboard_[^/]+\.html$/i.test(location.pathname) ? '' : '../Dashboards/';
+    for (const [key, [label,,,filename]] of Object.entries(config.pages)) {
+      const a = document.createElement('a'); a.href = prefix+`Dashboard_${filename}_Brasil.html`;
+      a.textContent=label; if(key===config.sector) a.setAttribute('aria-current','page');
+      $('ui-dashboards').append(a);
+    }
+    $('ui-home').href=prefix+'Dashboard_Panorama_Macroeconomico_Brasil.html';
+    $('ui-print').addEventListener('click',()=>window.print());
+    const oldHeader = document.querySelector('.cabecera, .hero');
+    if(oldHeader) {
+      const metadata=oldHeader.querySelector('.cabecera__metadatos, #stamp');
+      if(metadata) {
+        // Preserve live metadata nodes and the listeners/IDs used by each dashboard.
+        for(const node of [...metadata.children]) if(node.id || /frecuencia/i.test(clean(node))) $('ui-metadata').append(node);
+        if(metadata.id==='stamp') $('ui-metadata').append(metadata);
+      }
+      const metadataButton=oldHeader.querySelector('#abrirMetadatos');
+      if(metadataButton){metadataButton.textContent='Fuentes y series';document.querySelector('.ui-actions').append(metadataButton);}
+      const inflationDownload=oldHeader.querySelector('#descargar-historia');
+      if(inflationDownload){
+        document.getElementById('contexto-seccion-real')?.append(inflationDownload);
+        inflationDownload.dataset.vista='inflacion';
+        inflationDownload.hidden=document.body.dataset.vistaActiva!=='inflacion';
+      }
+      oldHeader.hidden=true;
+    }
+    document.querySelectorAll('.pd-jump').forEach(node=>node.remove());
+    const bar=document.createElement('div');bar.className='ui-topicbar';
+    const mobile=document.createElement('label');mobile.className='ui-topic-mobile';mobile.textContent='Tema';
+    const select=document.createElement('select');select.id='ui-topic';mobile.append(select);bar.append(mobile);
+    let nav=main.querySelector('.selector-vista');
+    const items=[];
+    const addItem=(key,label,button,action)=>{items.push({key,label,button,action});const o=document.createElement('option');o.value=key;o.textContent=label;select.append(o);};
+    let customActivate=null;
+    if(nav){
+      for(const button of nav.querySelectorAll('button.opcion-vista')) {
+        const key=button.dataset.vistaToggle||button.dataset.vista;
+        if(!key)continue;
+        let label=clean(button.querySelector('strong'))||clean(button);
+        if(label==='PBI') {label='PIB';button.textContent=label;}
+        button.title=clean(button.querySelector('small'))||label;
+        button.setAttribute('aria-label',label);
+        addItem(key,label,button,()=>button.click());
+      }
+      nav.setAttribute('aria-label','Temas del dashboard');nav.removeAttribute('aria-labelledby');
+    }else{
+      nav=document.createElement('nav');nav.className='selector-vista';nav.setAttribute('aria-label','Temas del dashboard');
+      const options=document.createElement('div');options.className='selector-vista__opciones';nav.append(options);
+      const groups=[];
+      const addGroup=(key,label,nodes)=>{
+        const b=document.createElement('button');b.type='button';b.className='opcion-vista';b.textContent=label;b.setAttribute('aria-pressed','false');options.append(b);
+        groups.push({key,nodes});addItem(key,label,b,()=>b.click());
+        b.addEventListener('click',()=>{customActivate(key);history.replaceState(null,'','#'+key);});
+      };
+      if(config.sector==='panorama'){
+        const old=main.querySelector('.indice-secciones');
+        for(const a of old.querySelectorAll('a')) {
+          const section=document.querySelector(a.getAttribute('href'));
+          let label=clean(a).replace(/^\d+\s*·\s*/,'');
+          if(label==='Pulso')label='Resumen';
+          if(label==='Detalle completo')label='Indicadores';
+          if(section)addGroup(section.id,label,[section]);
+        }
+        old.hidden=true;
+        const title=$('seccion-pulso')?.querySelector('h2');if(title)title.textContent='Indicadores principales';
+        for(const n of main.querySelectorAll('.tarjeta-pulso__rezago,.item-fila__rezago')){
+          n.textContent=clean(n).replace(/(\d+)m atraso/,(_,months)=>`Hace ${months} ${months==='1'?'mes':'meses'}`).replace('al día','Mes actual');
+          n.title='Antigüedad del período de referencia; no indica un retraso de publicación.';
+        }
+        for(const n of main.querySelectorAll('.etiqueta-comparacion'))if(clean(n).toUpperCase()==='I.A.')n.textContent='Interanual';
+      }else if(config.sector==='nowcast'){
+        const section=id=>$(id)?.closest('section');
+        addGroup('evaluacion','Evaluación',[main.querySelector('.grid'),section('ranking'),section('chart')]);
+        addGroup('pronosticos','Pronósticos',[section('nowcasts')]);
+        addGroup('ensamble','Ensamble',[section('ensembleTable')]);
+        addGroup('variables','Variables',[section('impModel')]);
+        addGroup('vigencia','Vigencia',[section('freshness')]);
+        addGroup('metodologia','Metodología',[main.querySelector('section.method')]);
+        const modelControl=$('chartModels').closest('.control');modelControl.classList.add('ui-model-picker');
+        const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='Modelos del gráfico';
+        details.append(summary,$('chartModels'));modelControl.replaceChildren(details);
+        // Expand abbreviations without changing measures or model outputs.
+        const labels={'QoQ SA':'Trimestral · ajustado (%)','YoY SA':'Interanual · ajustado (%)','QoQ NSA':'Trimestral · original (%)','YoY NSA':'Interanual · original (%)','M':'Mes disponible'};
+        for(const th of section('nowcasts')?.querySelectorAll('th')||[])if(labels[clean(th)])th.textContent=labels[clean(th)];
+        $('bestRmse').nextElementSibling.textContent='p.p. de variación trimestral ajustada';
+      }
+      customActivate=key=>{
+        for(const g of groups)for(const n of g.nodes.filter(Boolean))n.classList.toggle('ui-group-hidden',g.key!==key);
+        for(const item of items)item.button.setAttribute('aria-pressed',String(item.key===key));
+        if(config.sector==='nowcast')main.querySelector('.controls').classList.toggle('ui-group-hidden',!['evaluacion','ensamble'].includes(key));
+        sync();requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
+      };
+      const initial=items.find(i=>i.key===initialHash.slice(1))||items[0];
+      if(initial)customActivate(initial.key);
+    }
+    bar.append(nav);main.prepend(bar);
+    const depth=$('profundidad');
+    let depthButton;
+    if(depth){
+      depthButton=document.createElement('button');depthButton.type='button';depthButton.className='opcion-vista ui-depth-button';depthButton.textContent='Datos detallados';depthButton.setAttribute('aria-pressed','false');
+      const options=nav.querySelector('.selector-vista__opciones, .controles-vistas__opciones')||nav;
+      options.append(depthButton);
+      addItem('profundidad','Datos detallados',depthButton,()=>depthButton.click());
+      depthButton.addEventListener('click',()=>{setDepth(true);history.replaceState(null,'','#profundidad');});
+      $('pd-title').textContent='Explorar datos detallados';
+      const top=depth.querySelector('.pd-top');top.href='#ui-top';top.textContent='Volver al inicio';
+    }
+    let previousTopic=null;
+    function setDepth(active){
+      if(active){
+        previousTopic=items.find(i=>i.key!=='profundidad'&&i.button.getAttribute('aria-pressed')==='true')||previousTopic;
+        for(const i of items)if(i.key!=='profundidad')i.button.setAttribute('aria-pressed','false');
+      }else if(!items.some(i=>i.key!=='profundidad'&&i.button.getAttribute('aria-pressed')==='true')){
+        previousTopic?.button.setAttribute('aria-pressed','true');
+      }
+      document.body.dataset.uiDepth=String(active);
+      depthButton?.setAttribute('aria-pressed',String(active));
+      sync();
+    }
+    function sync(){
+      if(document.body.dataset.uiDepth==='true'){select.value='profundidad';return;}
+      const active=items.find(i=>i.key!=='profundidad'&&i.button.getAttribute('aria-pressed')==='true');
+      if(active) select.value=active.key;
+    }
+    nav.addEventListener('click',event=>{
+      const b=event.target.closest('button.opcion-vista');
+      if(b&&b!==depthButton){
+        setDepth(false);
+        const item=items.find(i=>i.button===b);
+        if(item)history.replaceState(null,'','#'+item.key);
+        queueMicrotask(sync);
+      }
+    });
+    select.addEventListener('change',()=>items.find(i=>i.key===select.value)?.action());
+    const observer=new MutationObserver(sync);
+    observer.observe(nav,{subtree:true,attributes:true,attributeFilter:['aria-pressed']});
+    window.addEventListener('hashchange',()=>{
+      const key=location.hash.slice(1);
+      setDepth(key==='profundidad');
+      if(customActivate&&items.some(i=>i.key===key)&&key!=='profundidad')customActivate(key);
+      else if(!customActivate&&key!=='profundidad')items.find(i=>i.key===key)?.action();
+    });
+    setDepth(initialHash==='#profundidad');
+    if(initialHash==='#profundidad')history.replaceState(null,'','#profundidad');
+    const footer=document.createElement('footer');footer.className='ui-footer';
+    footer.innerHTML='<span>Brasil · Datos económicos</span><span>Consultá la fecha, unidad y fuente antes de comparar series.</span><a href="#ui-top">Volver al inicio ↑</a>';
+    main.after(footer);
+  }
+  // Run after sector initialization, including standalone exporters that move scripts.
+  if(document.readyState==='complete')init();else window.addEventListener('load',init,{once:true});
+})();
+</script><!-- /DISENO_COMUN_SCRIPT -->
+
 <script data-archivo-origen="datos_calendario.js">
-window.__DATOS_CALENDARIO__ = {"version":"1.0","metadatos":{"generado_utc":"2026-09-08T07:02:20.027302+00:00","periodo_final":"2026-09","cantidad_publicaciones":23,"sectores":["fiscal","real","financiero","externo"],"perfil_exportacion":"ultimos_10_anios","corte_inicial_exportacion":"2016-10"},"publicaciones":[{"id":"ipca","nombre":"IPCA · precios al consumidor","entidad":"IBGE","sector":"real","vista_relacionada":"Precios e inflación","frecuencia":"mensual","patron":"Fecha oficial del calendario de divulgaciones del IBGE.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["IPCA mensual","Aporte de cada grupo","Acumulado 12 meses"],"url_fuente":"https://servicodados.ibge.gov.br/api/v3/calendario","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":"2026-09-11","notas":"Fecha oficial verificada el 2026-08-14 contra API oficial del calendario de divulgaciones del IBGE (produto: Índice Nacional de Preços ao Consumidor Amplo)."},{"id":"nucleos_inflacion","nombre":"Núcleos de inflación (BCB)","entidad":"Banco Central de Brasil","sector":"real","vista_relacionada":"Precios e inflación","frecuencia":"mensual","patron":"Mismo día hábil que la publicación del IPCA (práctica documentada por el BCB).","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["EX0","EX3","MS","DP","P55"],"url_fuente":"https://www.bcb.gov.br/estatisticas","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":"2026-09-11","notas":"Fecha oficial verificada el 2026-08-14 contra El BCB publica los núcleos de inflación el mismo día hábil que el IBGE divulga el IPCA (práctica documentada por el propio BCB); se reutilizan las fechas oficiales del IPCA."},{"id":"ibc_br","nombre":"IBC-Br · actividad económica","entidad":"Banco Central de Brasil","sector":"real","vista_relacionada":"Actividad económica mensual","frecuencia":"mensual","patron":"Sin calendario de divulgación con fechas futuras publicado por el BCB.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["IBC-Br con ajuste estacional","IBC-Br sin ajuste"],"url_fuente":"https://www.bcb.gov.br/estatisticas/ibc-br","referencia_ultimo_dato":"2026-06","fecha_fin_referencia":"2026-06-30","fecha_estimada":null,"notas":"El BCB no publica un calendario de divulgación con fechas futuras para el IBC-Br (verificado 2026-08-14: la página bcb.gov.br/estatisticas/ibc-br y la lista bcb.gov.br/estatisticas/notas_calendario no exponen fechas futuras de forma accesible). Nota no oficial: Investing.com listaba el 17/08/2026 como próxima fecha (dato de junio/2026), pero es un agregador de terceros, no la fuente primaria."},{"id":"empleo_pnadc","nombre":"Empleo · PNAD Continua mensual","entidad":"IBGE","sector":"real","vista_relacionada":"Actividad económica mensual","frecuencia":"mensual","patron":"Fecha oficial del calendario de divulgaciones del IBGE.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["Tasa de desocupación","Ocupación por actividad"],"url_fuente":"https://servicodados.ibge.gov.br/api/v3/calendario","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":"2026-09-29","notas":"Fecha oficial verificada el 2026-08-14 contra API oficial del calendario de divulgaciones del IBGE (produto: Pesquisa Nacional por Amostra de Domicílios Contínua Mensal)."},{"id":"ipp","nombre":"IPP · precios al productor","entidad":"IBGE","sector":"real","vista_relacionada":"Precios e inflación","frecuencia":"mensual","patron":"Fecha oficial del calendario de divulgaciones del IBGE.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["IPP industrial"],"url_fuente":"https://servicodados.ibge.gov.br/api/v3/calendario","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":"2026-09-30","notas":"Fecha oficial verificada el 2026-08-14 contra API oficial del calendario de divulgaciones del IBGE (produto: Índice de Preços ao Produtor - Indústrias Extrativas e de Transformação)."},{"id":"copom_decision","nombre":"Decisión de la meta Selic (Copom)","entidad":"Banco Central de Brasil","sector":"real,financiero","vista_relacionada":"Política monetaria","frecuencia":"según calendario del Copom (~8 reuniones al año)","patron":"Calendario oficial de reuniones del Copom, publicado con antelación por el BCB.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["Meta Selic"],"url_fuente":"https://www.bcb.gov.br/controleinflacao/copom","referencia_ultimo_dato":"2026-08-05","fecha_fin_referencia":"2026-08-05","fecha_estimada":"2026-09-16"},{"id":"selic_tasas","nombre":"Selic efectiva y tasas de interés","entidad":"Banco Central de Brasil","sector":"real,financiero","vista_relacionada":"Política monetaria","frecuencia":"diaria","patron":"Actualización diaria, con un día hábil de rezago (T+1). No es una fecha estimada: es una serie que se publica todos los días hábiles.","certeza":"patron_documentado","margen_dias":1,"series_incluidas":["Selic efectiva diaria","Selic acumulada del mes"],"url_fuente":"https://www.bcb.gov.br/estatisticas","referencia_ultimo_dato":"2026-09","fecha_fin_referencia":"2026-09-30","fecha_estimada":"2026-09-09"},{"id":"reservas_internacionales","nombre":"Reservas internacionales","entidad":"Banco Central de Brasil","sector":"real","vista_relacionada":"Reservas internacionales","frecuencia":"diaria","patron":"Actualización diaria, con un día hábil de rezago (T+1). No es una fecha estimada: es una serie que se publica todos los días hábiles.","certeza":"patron_documentado","margen_dias":1,"series_incluidas":["Reservas internacionales, concepto caja"],"url_fuente":"https://www.bcb.gov.br/estatisticas","referencia_ultimo_dato":"2026-09","fecha_fin_referencia":"2026-09-03","fecha_estimada":"2026-09-09"},{"id":"pib_fmi_weo","nombre":"Perspectivas del PIB · FMI (WEO)","entidad":"Fondo Monetario Internacional","sector":"real","vista_relacionada":"Actividad productiva","frecuencia":"semestral","patron":"El FMI aún no anuncia la fecha exacta de la próxima edición.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Proyección de crecimiento real del PIB"],"url_fuente":"https://www.imf.org/en/Publications/WEO","referencia_ultimo_dato":"2025","fecha_fin_referencia":"2025-12-31","fecha_estimada":null,"notas":"El FMI no había anunciado (al 2026-08-14) la fecha exacta de la edición de octubre de 2026 del WEO. Se sabe que las Reuniones Anuales del FMI y el Banco Mundial serán del 12 al 18 de octubre de 2026 en Bangkok, y el WEO suele publicarse durante esa semana, pero eso no es una fecha confirmada. El WEO proyecta hasta 2031; el último año observado (no proyectado) es el que se muestra como referencia."},{"id":"balance_energetico","nombre":"Balance energético nacional (BEN)","entidad":"Empresa de Investigación Energética (EPE)","sector":"real","vista_relacionada":"Energía","frecuencia":"anual","patron":"La EPE no anuncia con antelación una fecha exacta de publicación.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Matriz energética","Dependencia externa"],"url_fuente":"https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/Balanco-Energetico-Nacional-2026","referencia_ultimo_dato":"2025","fecha_fin_referencia":"2025-12-31","fecha_estimada":null,"notas":"La EPE no publica con antelación una fecha exacta para el Balanço Energético Nacional; solo indica 'a mediados de año' de forma general (verificado 2026-08-14)."},{"id":"pobreza_sis","nombre":"Pobreza monetaria · Síntesis de Indicadores Sociales","entidad":"IBGE","sector":"real","vista_relacionada":"Pobreza y condiciones de vida","frecuencia":"anual","patron":"La próxima edición todavía no aparece en el calendario oficial del IBGE.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Tasa de pobreza","Tasa de extrema pobreza"],"url_fuente":"https://www.ibge.gov.br/estatisticas/multidominio/condicoes-de-vida-desigualdade-e-pobreza/9221-sintese-de-indicadores-sociais.html","referencia_ultimo_dato":"2024","fecha_fin_referencia":"2024-12-31","fecha_estimada":null,"notas":"La próxima edición de la Síntese de Indicadores Sociais no aparece todavía en el calendario oficial del IBGE (verificado 2026-08-14, calendario consultado hasta marzo de 2027). Última edición disponible: Síntesis de Indicadores Sociais 2025."},{"id":"pib_sectorial","nombre":"PIB por sector · Cuentas Nacionales Trimestrales","entidad":"IBGE","sector":"real,financiero","vista_relacionada":"Actividad productiva / PIB por sector","frecuencia":"trimestral","patron":"Fecha oficial del calendario de divulgaciones del IBGE.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["PIB total","Agropecuaria","Industria","Servicios"],"url_fuente":"https://servicodados.ibge.gov.br/api/v3/calendario","referencia_ultimo_dato":"2026-T2","fecha_fin_referencia":"2026-06-30","fecha_estimada":"2026-12-02","notas":"Fecha oficial verificada el 2026-08-14 contra API oficial del calendario de divulgaciones del IBGE (produto: Sistema de Contas Nacionais Trimestrais)."},{"id":"resultado_fiscal_bcb","nombre":"Resultado fiscal del sector público (NFSP)","entidad":"Banco Central de Brasil","sector":"fiscal","vista_relacionada":"Panorama / Resultados","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para esta nota.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Resultado primario","Intereses nominales","Resultado nominal"],"url_fuente":"https://www.bcb.gov.br/estatisticas","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario propio para la Nota de Política Fiscal / NFSP con fechas futuras accesibles (verificado 2026-08-14)."},{"id":"gasto_publico_tesouro","nombre":"Gasto público federal (ejecución presupuestaria)","entidad":"Tesoro Nacional","sector":"fiscal","vista_relacionada":"Gasto público","frecuencia":"mensual","patron":"El Portal da Transparência actualiza este conjunto de datos sin un calendario de fechas fijas anunciado con antelación.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Pagos totales","Devengado","Comprometido"],"url_fuente":"https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais-da-uniao","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El Portal da Transparência actualiza el conjunto 'despesas e transferências totais da União' de forma continua, sin un calendario de fechas fijas anunciado con antelación (verificado 2026-08-14)."},{"id":"deuda_publica_federal","nombre":"Deuda Pública Federal · Informe mensual de la deuda (RMD)","entidad":"Tesoro Nacional","sector":"fiscal,financiero","vista_relacionada":"Deuda pública","frecuencia":"mensual","patron":"Fecha oficial del calendario de divulgaciones del Tesoro Nacional.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["Saldo DPF","Composición por moneda","Indexadores","Tenedores"],"url_fuente":"https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55039_1735642/anexos/28614_964310/2026_2sem.pdf","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":"2026-09-28","notas":"Fecha oficial verificada el 2026-08-14 contra Calendário de Divulgações do Tesouro Nacional, 2º semestre de 2026 (atualizado 26/06/2026), línea 'Relatório Mensal da Dívida (RMD)'. La última edición (2026-07) se publicó el ."},{"id":"balance_bcb","nombre":"Balance contable mensual del BCB","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Balance y flujos del BCB","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para este balance.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Activos","Pasivos","Patrimonio"],"url_fuente":"https://dadosabertos.bcb.gov.br/dataset/saldos-contabeis-mensais-bcb","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para el balance contable mensual (verificado 2026-08-14)."},{"id":"base_monetaria","nombre":"Base monetaria y agregados (M1-M4)","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Base monetaria","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para esta serie.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Base monetaria","M1","M2","M3","M4"],"url_fuente":"https://dadosabertos.bcb.gov.br/","referencia_ultimo_dato":"2026-09","fecha_fin_referencia":"2026-09-30","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para la base monetaria y agregados (verificado 2026-08-14)."},{"id":"credito_sgs","nombre":"Mercado de crédito · saldos, tasas y morosidad","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Mercado de crédito","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para esta nota.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Cartera total","Concesiones","Tasas","Morosidad"],"url_fuente":"https://dadosabertos.bcb.gov.br/","referencia_ultimo_dato":"2026-09","fecha_fin_referencia":"2026-09-30","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para las Estatísticas Monetárias e de Crédito (verificado 2026-08-14)."},{"id":"scr_indexadores","nombre":"Cartera de crédito por indexador (SCR.data)","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Mercado de crédito","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para el SCR.data.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Morosidad por indexador","Activo problemático"],"url_fuente":"https://www.bcb.gov.br/estabilidadefinanceira/scrdata","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para el SCR.data (verificado 2026-08-14)."},{"id":"tipo_cambio","nombre":"Tipo de cambio (PTAX)","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Base monetaria","frecuencia":"diaria","patron":"Publicación diaria al cierre de la jornada (T+0). No es una fecha estimada: es una serie que se publica todos los días hábiles.","certeza":"patron_documentado","margen_dias":1,"series_incluidas":["BRL/USD venta"],"url_fuente":"https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes","referencia_ultimo_dato":"2026-09-04","fecha_fin_referencia":"2026-09-04","fecha_estimada":"2026-09-09"},{"id":"riesgo_pais_embig","nombre":"Riesgo país · EMBIG Brasil","entidad":"J.P. Morgan / BCRPData","sector":"financiero","vista_relacionada":"Riesgo soberano","frecuencia":"diaria","patron":"Actualización diaria, con un día hábil de rezago (T+1). No es una fecha estimada: es una serie que se publica todos los días hábiles.","certeza":"patron_documentado","margen_dias":1,"series_incluidas":["Diferencial EMBIG Brasil"],"url_fuente":"https://estadisticas.bcrp.gob.pe/estadisticas/series/diarias/tasas-de-interes-embig-variacion-en-pbs","referencia_ultimo_dato":"2026-09-04","fecha_fin_referencia":"2026-09-04","fecha_estimada":"2026-09-09"},{"id":"comex_stat","nombre":"Comercio exterior · exportaciones e importaciones","entidad":"MDIC (Comex Stat)","sector":"externo","vista_relacionada":"Comercio exterior","frecuencia":"mensual","patron":"Fecha oficial del cronograma de divulgações del MDIC (Coletiva mensal, 15:00–18:30 Brasília).","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["Exportaciones FOB","Importaciones FOB","Balanza comercial"],"url_fuente":"https://balanca.economia.gov.br/balanca/cronograma/pg_cronograma.html","referencia_ultimo_dato":"2026-08","fecha_fin_referencia":"2026-08-31","fecha_estimada":"2026-10-06","notas":"Fecha oficial verificada el 2026-08-14 contra Cronograma oficial de divulgações do MDIC (Comex Stat), fila 'Coletiva mensal / Dados consolidados', horário 15:00–18:30 Brasília."},{"id":"balanza_pagos","nombre":"Cuenta corriente y financiamiento externo (balanza de pagos)","entidad":"Banco Central de Brasil","sector":"externo","vista_relacionada":"Cuenta corriente / Financiamiento externo","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para la Nota do Setor Externo.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Cuenta corriente","Inversión extranjera directa","Inversión de cartera"],"url_fuente":"https://www.bcb.gov.br/estatisticas/setorexterno","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para la Nota do Setor Externo (verificado 2026-08-14)."}]};
+window.__DATOS_CALENDARIO__ = {"version":"1.0","metadatos":{"generado_utc":"2026-09-14T11:41:55.792574+00:00","periodo_final":"2026-09","cantidad_publicaciones":29,"sectores":["fiscal","real","financiero","externo"],"perfil_exportacion":"ultimos_10_anios","corte_inicial_exportacion":"2016-10"},"publicaciones":[{"id":"ipca","nombre":"IPCA · precios al consumidor","entidad":"IBGE","sector":"real","vista_relacionada":"Precios e inflación","frecuencia":"mensual","patron":"Fecha oficial del calendario de divulgaciones del IBGE.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["IPCA mensual","Aporte de cada grupo","Acumulado 12 meses"],"url_fuente":"https://servicodados.ibge.gov.br/api/v3/calendario","referencia_ultimo_dato":"2026-08","fecha_fin_referencia":"2026-08-31","fecha_estimada":"2026-10-09","notas":"Fecha oficial verificada el 2026-08-14 contra API oficial del calendario de divulgaciones del IBGE (produto: Índice Nacional de Preços ao Consumidor Amplo)."},{"id":"nucleos_inflacion","nombre":"Núcleos de inflación (BCB)","entidad":"Banco Central de Brasil","sector":"real","vista_relacionada":"Precios e inflación","frecuencia":"mensual","patron":"Mismo día hábil que la publicación del IPCA (práctica documentada por el BCB).","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["EX0","EX3","MS","DP","P55"],"url_fuente":"https://www.bcb.gov.br/estatisticas","referencia_ultimo_dato":"2026-08","fecha_fin_referencia":"2026-08-31","fecha_estimada":"2026-10-09","notas":"Fecha oficial verificada el 2026-08-14 contra El BCB publica los núcleos de inflación el mismo día hábil que el IBGE divulga el IPCA (práctica documentada por el propio BCB); se reutilizan las fechas oficiales del IPCA."},{"id":"ibc_br","nombre":"IBC-Br · actividad económica","entidad":"Banco Central de Brasil","sector":"real","vista_relacionada":"Actividad económica mensual","frecuencia":"mensual","patron":"Sin calendario de divulgación con fechas futuras publicado por el BCB.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["IBC-Br con ajuste estacional","IBC-Br sin ajuste"],"url_fuente":"https://www.bcb.gov.br/estatisticas/ibc-br","referencia_ultimo_dato":"2026-06","fecha_fin_referencia":"2026-06-30","fecha_estimada":null,"notas":"El BCB no publica un calendario de divulgación con fechas futuras para el IBC-Br (verificado 2026-08-14: la página bcb.gov.br/estatisticas/ibc-br y la lista bcb.gov.br/estatisticas/notas_calendario no exponen fechas futuras de forma accesible). Nota no oficial: Investing.com listaba el 17/08/2026 como próxima fecha (dato de junio/2026), pero es un agregador de terceros, no la fuente primaria."},{"id":"empleo_pnadc","nombre":"Empleo · PNAD Continua mensual","entidad":"IBGE","sector":"real","vista_relacionada":"Actividad económica mensual","frecuencia":"mensual","patron":"Fecha oficial del calendario de divulgaciones del IBGE.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["Tasa de desocupación","Ocupación por actividad"],"url_fuente":"https://servicodados.ibge.gov.br/api/v3/calendario","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":"2026-09-29","notas":"Fecha oficial verificada el 2026-08-14 contra API oficial del calendario de divulgaciones del IBGE (produto: Pesquisa Nacional por Amostra de Domicílios Contínua Mensal)."},{"id":"ipp","nombre":"IPP · precios al productor","entidad":"IBGE","sector":"real","vista_relacionada":"Precios e inflación","frecuencia":"mensual","patron":"Fecha oficial del calendario de divulgaciones del IBGE.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["IPP industrial"],"url_fuente":"https://servicodados.ibge.gov.br/api/v3/calendario","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":"2026-09-30","notas":"Fecha oficial verificada el 2026-08-14 contra API oficial del calendario de divulgaciones del IBGE (produto: Índice de Preços ao Produtor - Indústrias Extrativas e de Transformação)."},{"id":"copom_decision","nombre":"Decisión de la meta Selic (Copom)","entidad":"Banco Central de Brasil","sector":"real,financiero","vista_relacionada":"Política monetaria","frecuencia":"según calendario del Copom (~8 reuniones al año)","patron":"Calendario oficial de reuniones del Copom, publicado con antelación por el BCB.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["Meta Selic"],"url_fuente":"https://www.bcb.gov.br/controleinflacao/copom","referencia_ultimo_dato":"2026-08-05","fecha_fin_referencia":"2026-08-05","fecha_estimada":"2026-09-16"},{"id":"selic_tasas","nombre":"Selic efectiva y tasas de interés","entidad":"Banco Central de Brasil","sector":"real,financiero","vista_relacionada":"Política monetaria","frecuencia":"diaria","patron":"Actualización diaria, con un día hábil de rezago (T+1). No es una fecha estimada: es una serie que se publica todos los días hábiles.","certeza":"patron_documentado","margen_dias":1,"series_incluidas":["Selic efectiva diaria","Selic acumulada del mes"],"url_fuente":"https://www.bcb.gov.br/estatisticas","referencia_ultimo_dato":"2026-09","fecha_fin_referencia":"2026-09-30","fecha_estimada":"2026-09-15"},{"id":"reservas_internacionales","nombre":"Reservas internacionales","entidad":"Banco Central de Brasil","sector":"real","vista_relacionada":"Reservas internacionales","frecuencia":"diaria","patron":"Actualización diaria, con un día hábil de rezago (T+1). No es una fecha estimada: es una serie que se publica todos los días hábiles.","certeza":"patron_documentado","margen_dias":1,"series_incluidas":["Reservas internacionales, concepto caja"],"url_fuente":"https://www.bcb.gov.br/estatisticas","referencia_ultimo_dato":"2026-09","fecha_fin_referencia":"2026-09-10","fecha_estimada":"2026-09-15"},{"id":"pib_fmi_weo","nombre":"Perspectivas del PIB · FMI (WEO)","entidad":"Fondo Monetario Internacional","sector":"real","vista_relacionada":"Actividad productiva","frecuencia":"semestral","patron":"El FMI aún no anuncia la fecha exacta de la próxima edición.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Proyección de crecimiento real del PIB"],"url_fuente":"https://www.imf.org/en/Publications/WEO","referencia_ultimo_dato":"2025","fecha_fin_referencia":"2025-12-31","fecha_estimada":null,"notas":"El FMI no había anunciado (al 2026-08-14) la fecha exacta de la edición de octubre de 2026 del WEO. Se sabe que las Reuniones Anuales del FMI y el Banco Mundial serán del 12 al 18 de octubre de 2026 en Bangkok, y el WEO suele publicarse durante esa semana, pero eso no es una fecha confirmada. El WEO proyecta hasta 2031; el último año observado (no proyectado) es el que se muestra como referencia."},{"id":"balance_energetico","nombre":"Balance energético nacional (BEN)","entidad":"Empresa de Investigación Energética (EPE)","sector":"real","vista_relacionada":"Energía","frecuencia":"anual","patron":"La EPE no anuncia con antelación una fecha exacta de publicación.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Matriz energética","Dependencia externa"],"url_fuente":"https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/Balanco-Energetico-Nacional-2026","referencia_ultimo_dato":"2025","fecha_fin_referencia":"2025-12-31","fecha_estimada":null,"notas":"La EPE no publica con antelación una fecha exacta para el Balanço Energético Nacional; solo indica 'a mediados de año' de forma general (verificado 2026-08-14)."},{"id":"pobreza_sis","nombre":"Pobreza monetaria · Síntesis de Indicadores Sociales","entidad":"IBGE","sector":"real","vista_relacionada":"Pobreza y condiciones de vida","frecuencia":"anual","patron":"La próxima edición todavía no aparece en el calendario oficial del IBGE.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Tasa de pobreza","Tasa de extrema pobreza"],"url_fuente":"https://www.ibge.gov.br/estatisticas/multidominio/condicoes-de-vida-desigualdade-e-pobreza/9221-sintese-de-indicadores-sociais.html","referencia_ultimo_dato":"2024","fecha_fin_referencia":"2024-12-31","fecha_estimada":null,"notas":"La próxima edición de la Síntese de Indicadores Sociais no aparece todavía en el calendario oficial del IBGE (verificado 2026-08-14, calendario consultado hasta marzo de 2027). Última edición disponible: Síntesis de Indicadores Sociais 2025."},{"id":"pib_sectorial","nombre":"PIB por sector · Cuentas Nacionales Trimestrales","entidad":"IBGE","sector":"real,financiero","vista_relacionada":"Actividad productiva / PIB por sector","frecuencia":"trimestral","patron":"Fecha oficial del calendario de divulgaciones del IBGE.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["PIB total","Agropecuaria","Industria","Servicios"],"url_fuente":"https://servicodados.ibge.gov.br/api/v3/calendario","referencia_ultimo_dato":"2026-T2","fecha_fin_referencia":"2026-06-30","fecha_estimada":"2026-12-02","notas":"Fecha oficial verificada el 2026-08-14 contra API oficial del calendario de divulgaciones del IBGE (produto: Sistema de Contas Nacionais Trimestrais)."},{"id":"resultado_fiscal_bcb","nombre":"Resultado fiscal del sector público (NFSP)","entidad":"Banco Central de Brasil","sector":"fiscal","vista_relacionada":"Panorama / Resultados","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para esta nota.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Resultado primario","Intereses nominales","Resultado nominal"],"url_fuente":"https://www.bcb.gov.br/estatisticas","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario propio para la Nota de Política Fiscal / NFSP con fechas futuras accesibles (verificado 2026-08-14)."},{"id":"gasto_publico_tesouro","nombre":"Gasto público federal (ejecución presupuestaria)","entidad":"Tesoro Nacional","sector":"fiscal","vista_relacionada":"Gasto público","frecuencia":"mensual","patron":"El Portal da Transparência actualiza este conjunto de datos sin un calendario de fechas fijas anunciado con antelación.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Pagos totales","Devengado","Comprometido"],"url_fuente":"https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais-da-uniao","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El Portal da Transparência actualiza el conjunto 'despesas e transferências totais da União' de forma continua, sin un calendario de fechas fijas anunciado con antelación (verificado 2026-08-14)."},{"id":"deuda_publica_federal","nombre":"Deuda Pública Federal · Informe mensual de la deuda (RMD)","entidad":"Tesoro Nacional","sector":"fiscal,financiero","vista_relacionada":"Deuda pública","frecuencia":"mensual","patron":"Fecha oficial del calendario de divulgaciones del Tesoro Nacional.","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["Saldo DPF","Composición por moneda","Indexadores","Tenedores"],"url_fuente":"https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55039_1735642/anexos/28614_964310/2026_2sem.pdf","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":"2026-09-28","notas":"Fecha oficial verificada el 2026-08-14 contra Calendário de Divulgações do Tesouro Nacional, 2º semestre de 2026 (atualizado 26/06/2026), línea 'Relatório Mensal da Dívida (RMD)'. La última edición (2026-07) se publicó el ."},{"id":"balance_bcb","nombre":"Balance contable mensual del BCB","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Balance y flujos del BCB","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para este balance.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Activos","Pasivos","Patrimonio"],"url_fuente":"https://dadosabertos.bcb.gov.br/dataset/saldos-contabeis-mensais-bcb","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para el balance contable mensual (verificado 2026-08-14)."},{"id":"base_monetaria","nombre":"Base monetaria y agregados (M1-M4)","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Base monetaria","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para esta serie.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Base monetaria","M1","M2","M3","M4"],"url_fuente":"https://dadosabertos.bcb.gov.br/","referencia_ultimo_dato":"2026-09","fecha_fin_referencia":"2026-09-30","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para la base monetaria y agregados (verificado 2026-08-14)."},{"id":"credito_sgs","nombre":"Mercado de crédito · saldos, tasas y morosidad","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Mercado de crédito","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para esta nota.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Cartera total","Concesiones","Tasas","Morosidad"],"url_fuente":"https://dadosabertos.bcb.gov.br/","referencia_ultimo_dato":"2026-09","fecha_fin_referencia":"2026-09-30","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para las Estatísticas Monetárias e de Crédito (verificado 2026-08-14)."},{"id":"scr_indexadores","nombre":"Cartera de crédito por indexador (SCR.data)","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Mercado de crédito","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para el SCR.data.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Morosidad por indexador","Activo problemático"],"url_fuente":"https://www.bcb.gov.br/estabilidadefinanceira/scrdata","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para el SCR.data (verificado 2026-08-14)."},{"id":"tipo_cambio","nombre":"Tipo de cambio (PTAX)","entidad":"Banco Central de Brasil","sector":"financiero","vista_relacionada":"Base monetaria","frecuencia":"diaria","patron":"Publicación diaria al cierre de la jornada (T+0). No es una fecha estimada: es una serie que se publica todos los días hábiles.","certeza":"patron_documentado","margen_dias":1,"series_incluidas":["BRL/USD venta"],"url_fuente":"https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes","referencia_ultimo_dato":"2026-09-11","fecha_fin_referencia":"2026-09-11","fecha_estimada":"2026-09-15"},{"id":"riesgo_pais_embig","nombre":"Riesgo país · EMBIG Brasil","entidad":"J.P. Morgan / BCRPData","sector":"financiero","vista_relacionada":"Riesgo soberano","frecuencia":"diaria","patron":"Actualización diaria, con un día hábil de rezago (T+1). No es una fecha estimada: es una serie que se publica todos los días hábiles.","certeza":"patron_documentado","margen_dias":1,"series_incluidas":["Diferencial EMBIG Brasil"],"url_fuente":"https://estadisticas.bcrp.gob.pe/estadisticas/series/diarias/tasas-de-interes-embig-variacion-en-pbs","referencia_ultimo_dato":"2026-09-04","fecha_fin_referencia":"2026-09-04","fecha_estimada":"2026-09-15"},{"id":"comex_stat","nombre":"Comercio exterior · exportaciones e importaciones","entidad":"MDIC (Comex Stat)","sector":"externo","vista_relacionada":"Comercio exterior","frecuencia":"mensual","patron":"Fecha oficial del cronograma de divulgações del MDIC (Coletiva mensal, 15:00–18:30 Brasília).","certeza":"calendario_oficial","margen_dias":0,"series_incluidas":["Exportaciones FOB","Importaciones FOB","Balanza comercial"],"url_fuente":"https://balanca.economia.gov.br/balanca/cronograma/pg_cronograma.html","referencia_ultimo_dato":"2026-08","fecha_fin_referencia":"2026-08-31","fecha_estimada":"2026-10-06","notas":"Fecha oficial verificada el 2026-08-14 contra Cronograma oficial de divulgações do MDIC (Comex Stat), fila 'Coletiva mensal / Dados consolidados', horário 15:00–18:30 Brasília."},{"id":"balanza_pagos","nombre":"Cuenta corriente y financiamiento externo (balanza de pagos)","entidad":"Banco Central de Brasil","sector":"externo","vista_relacionada":"Cuenta corriente / Financiamiento externo","frecuencia":"mensual","patron":"El BCB no publica con antelación un calendario con fechas futuras para la Nota do Setor Externo.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["Cuenta corriente","Inversión extranjera directa","Inversión de cartera"],"url_fuente":"https://www.bcb.gov.br/estatisticas/setorexterno","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"El BCB no publica con antelación un calendario con fechas futuras para la Nota do Setor Externo (verificado 2026-08-14)."},{"id":"pim_pf","nombre":"Producción industrial · actividades y categorías","entidad":"IBGE","sector":"real","vista_relacionada":"Más datos, más detalle","frecuencia":"mensual","patron":"Consultar el calendario oficial de IBGE.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["PIM-PF actividades industriales","PIM-PF categorias economicas","PIM-PF grupos y clases","PIM-PF indicadores especiales","PIM-PF insumos de construccion"],"url_fuente":"https://www.ibge.gov.br/calendario-de-divulgacoes-novoportal.html","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"258 series descargadas disponibles en el explorador. La próxima fecha no está verificada en la configuración local."},{"id":"pms","nombre":"Servicios · actividades, turismo y transporte","entidad":"IBGE","sector":"real","vista_relacionada":"Más datos, más detalle","frecuencia":"mensual","patron":"Consultar el calendario oficial de IBGE.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["PMS actividades","PMS segmentos","PMS total","PMS transporte","PMS turismo"],"url_fuente":"https://www.ibge.gov.br/calendario-de-divulgacoes-novoportal.html","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"176 series descargadas disponibles en el explorador. La próxima fecha no está verificada en la configuración local."},{"id":"pmc","nombre":"Comercio · actividades, vehículos y construcción","entidad":"IBGE","sector":"real","vista_relacionada":"Más datos, más detalle","frecuencia":"mensual","patron":"Consultar el calendario oficial de IBGE.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["PMC actividades complementarias","PMC comercio ampliado","PMC comercio ampliado por actividad","PMC materiales de construccion","PMC vehiculos"],"url_fuente":"https://www.ibge.gov.br/calendario-de-divulgacoes-novoportal.html","referencia_ultimo_dato":"2026-06","fecha_fin_referencia":"2026-06-30","fecha_estimada":null,"notas":"102 series descargadas disponibles en el explorador. La próxima fecha no está verificada en la configuración local."},{"id":"ipca15","nombre":"IPCA-15 · componentes","entidad":"IBGE","sector":"real","vista_relacionada":"Más datos, más detalle","frecuencia":"mensual","patron":"Consultar el calendario oficial de IBGE.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["IPCA-15 componentes"],"url_fuente":"https://www.ibge.gov.br/calendario-de-divulgacoes-novoportal.html","referencia_ultimo_dato":"2026-08","fecha_fin_referencia":"2026-08-31","fecha_estimada":null,"notas":"447 series descargadas disponibles en el explorador. La próxima fecha no está verificada en la configuración local."},{"id":"lspa","nombre":"Cosecha · superficie, producción y rendimiento","entidad":"IBGE","sector":"real","vista_relacionada":"Más datos, más detalle","frecuencia":"mensual","patron":"Consultar el calendario oficial de IBGE.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["LSPA estimativas mensuales"],"url_fuente":"https://www.ibge.gov.br/calendario-de-divulgacoes-novoportal.html","referencia_ultimo_dato":"2026-07","fecha_fin_referencia":"2026-07-31","fecha_estimada":null,"notas":"185 series descargadas disponibles en el explorador. La próxima fecha no está verificada en la configuración local."},{"id":"sinapi","nombre":"Construcción · costes, materiales y mano de obra","entidad":"IBGE","sector":"real","vista_relacionada":"Más datos, más detalle","frecuencia":"mensual","patron":"Consultar el calendario oficial de IBGE.","certeza":"sin_confirmar","margen_dias":0,"series_incluidas":["SINAPI costes de construccion"],"url_fuente":"https://www.ibge.gov.br/calendario-de-divulgacoes-novoportal.html","referencia_ultimo_dato":"2026-08","fecha_fin_referencia":"2026-08-31","fecha_estimada":null,"notas":"6 series descargadas disponibles en el explorador. La próxima fecha no está verificada en la configuración local."}]};
 
 </script>
 <script data-archivo-origen="aplicacion.js">
